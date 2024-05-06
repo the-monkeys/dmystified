@@ -7,12 +7,15 @@ const Hero = () => {
         <div className="w-full lg:w-1/2">
           <div className="my-10 lg:my-0 lg:px-10">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Get full access to Platform
+              Unlock Your Potential with Expert-Led Technology Courses
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-              nesciunt eos facilis debitis voluptas iure consectetur odit fugit
-              voluptate recusandae?
+              Welcome to Demystified, your gateway to mastering the intricate
+              world of technology. Whether you're an aspiring developer or a
+              seasoned professional looking to upgrade your skills, our
+              comprehensive courses are designed to empower you with the
+              knowledge and expertise you need to thrive in the ever-evolving
+              tech landscape.
             </p>
             <form action="#" method="POST" className="mt-8 max-w-xl">
               <div className="flex flex-col sm:flex-row sm:items-center">

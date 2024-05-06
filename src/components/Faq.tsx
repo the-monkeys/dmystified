@@ -1,7 +1,37 @@
+"use client";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const Faq = () => {
+  const [openAccordion, setOpenAccordion] = useState(null);
+
+  const toggleAccordion = (index: any) => {
+    setOpenAccordion(openAccordion === index ? null : index);
+  };
+
+  const faqData = [
+    {
+      question: "What is the monthly subscription fee?",
+      answer:
+        "Our monthly subscription fee is $150, granting you access to all our courses and resources.",
+    },
+    {
+      question: "How do I join the live classes?",
+      answer:
+        "Once you subscribe, you'll receive access to our class schedule. Simply log in to your account at the designated time to join the live session.",
+    },
+    {
+      question: "Are there any prerequisites for enrolling in your courses?",
+      answer:
+        "While some courses may have recommended prerequisites, most are designed to accommodate learners of all levels. We believe in providing accessible education for everyone.",
+    },
+    {
+      question: "Can I cancel my subscription at any time?",
+      answer:
+        "Yes, you can cancel your subscription at any time with no questions asked. We believe in providing flexibility to our learners.",
+    },
+  ];
+
   return (
     <section
       className="mx-auto max-w-7xl bg-gray-50 px-2 py-10 md:px-0"
@@ -18,39 +48,30 @@ const Faq = () => {
           </p>
         </div>
         <div className="mx-auto mt-8 max-w-3xl space-y-4 md:mt-16">
-          <div className="cursor-pointer rounded-md border border-gray-400 shadow-lg transition-all duration-200">
-            <button
-              type="button"
-              className="flex w-full items-center justify-between px-4 py-5 sm:p-6"
-            >
-              <span className="flex text-lg font-semibold text-black">
-                How do I get started?
-              </span>
-
-              <ChevronUp className="h-5 w-5 text-gray-500" />
-            </button>
-            <div className="px-4 pb-5 sm:px-6 sm:pb-6">
-              <p className="text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat aliquam adipisci iusto aperiam? Sint asperiores sequi
-                nobis inventore ratione deleniti?
-              </p>
-            </div>
-          </div>
-          {Array.from({ length: 2 }).map((_, i) => (
+          {faqData.map((faq, index) => (
             <div
-              key={i}
-              className="cursor-pointer rounded-md border border-gray-400 transition-all duration-200"
+              key={index}
+              className="cursor-pointer rounded-md border border-gray-400 shadow-lg transition-all duration-200"
             >
               <button
                 type="button"
-                className="flex w-full items-start justify-between px-4 py-5 sm:p-6 md:items-center"
+                className="flex w-full items-center justify-between px-4 py-5 sm:p-6"
+                onClick={() => toggleAccordion(index)}
               >
-                <span className="flex text-start text-lg font-semibold text-black">
-                  What is the difference between a free and paid account?
+                <span className="flex text-lg font-semibold text-black">
+                  {faq.question}
                 </span>
-                <ChevronDown className="hidden h-5 w-5 text-gray-500 md:block" />
+                {openAccordion === index ? (
+                  <ChevronUp className="h-5 w-5 text-gray-500" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-gray-500" />
+                )}
               </button>
+              {openAccordion === index && (
+                <div className="px-4 pb-5 sm:px-6 sm:pb-6">
+                  <p className="text-gray-500">{faq.answer}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>

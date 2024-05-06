@@ -24,11 +24,12 @@ const Features = () => {
               </svg>
             </div>
             <h3 className="mt-8 text-lg font-semibold text-black">
-              Secured Payments
+              Expert-Led Live Classes
             </h3>
             <p className="mt-4 text-sm text-gray-600">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Join our live classes conducted by industry experts who have years
+              of experience in their respective fields. Learn directly from the
+              best and stay ahead of the curve.
             </p>
           </div>
           <div>
@@ -49,11 +50,12 @@ const Features = () => {
               </svg>
             </div>
             <h3 className="mt-8 text-lg font-semibold text-black">
-              Fast & Easy to Load
+              Comprehensive Curriculum
             </h3>
             <p className="mt-4 text-sm text-gray-600">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Dive deep into frontend and backend technologies, including
+              GoLang, JavaScript, and popular frameworks. Explore system design
+              principles and master the art of data analysis.
             </p>
           </div>
           <div>
@@ -74,11 +76,12 @@ const Features = () => {
               </svg>
             </div>
             <h3 className="mt-8 text-lg font-semibold text-black">
-              Light & Dark Version
+              Interactive Learning Environment
             </h3>
             <p className="mt-4 text-sm text-gray-600">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Our classes are not just lectures; they're interactive sessions
+              where you can engage with instructors, ask questions, and
+              collaborate with fellow learners.
             </p>
           </div>
           <div>
@@ -99,11 +102,11 @@ const Features = () => {
               </svg>
             </div>
             <h3 className="mt-8 text-lg font-semibold text-black">
-              Filter Blocks
+              Personalized Guidance
             </h3>
             <p className="mt-4 text-sm text-gray-600">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
+              Receive personalized guidance and feedback from instructors to
+              ensure you're making progress every step of the way.
             </p>
           </div>
         </div>
