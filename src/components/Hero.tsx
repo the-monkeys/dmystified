@@ -11,7 +11,7 @@ const Hero = () => {
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600">
               Welcome to Demystified, your gateway to mastering the intricate
-              world of technology. Whether you're an aspiring developer or a
+              world of technology. Whether you are an aspiring developer or a
               seasoned professional looking to upgrade your skills, our
               comprehensive courses are designed to empower you with the
               knowledge and expertise you need to thrive in the ever-evolving

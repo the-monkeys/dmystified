@@ -79,7 +79,7 @@ const Features = () => {
               Interactive Learning Environment
             </h3>
             <p className="mt-4 text-sm text-gray-600">
-              Our classes are not just lectures; they're interactive sessions
+              Our classes are not just lectures; they are interactive sessions
               where you can engage with instructors, ask questions, and
               collaborate with fellow learners.
             </p>
@@ -106,7 +106,7 @@ const Features = () => {
             </h3>
             <p className="mt-4 text-sm text-gray-600">
               Receive personalized guidance and feedback from instructors to
-              ensure you're making progress every step of the way.
+              ensure you are making progress every step of the way.
             </p>
           </div>
         </div>
