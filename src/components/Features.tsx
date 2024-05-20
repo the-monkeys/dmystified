@@ -43,7 +43,7 @@ const featureItems = [
 const Features = () => {
 	return (
 		<div
-			className="mx-auto my-8 sm:my-12 max-w-7xl px-2 lg:px-8"
+			className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8"
 			id="features"
 		>
 			<h1 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-center">

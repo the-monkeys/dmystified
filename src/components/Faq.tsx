@@ -11,48 +11,50 @@ const FAQ = () => {
 
 	const faqData = [
 		{
-			question: "What is the monthly subscription fee?",
-			answer: "Our monthly subscription fee is $150, granting you access to all our courses and resources.",
+			question: "What is the cost of the monthly subscription?",
+			answer: "Our monthly subscription fee is $150, which provides comprehensive access to all our courses and resources.",
 		},
 		{
-			question: "How do I join the live classes?",
-			answer: "Once you subscribe, you'll receive access to our class schedule. Simply log in to your account at the designated time to join the live session.",
+			question: "How do I participate in the live classes?",
+			answer: "Upon subscription, you will gain access to our class schedule. To join a live session, simply log in to your account at the scheduled time.",
 		},
 		{
 			question:
 				"Are there any prerequisites for enrolling in your courses?",
-			answer: "While some courses may have recommended prerequisites, most are designed to accommodate learners of all levels. We believe in providing accessible education for everyone.",
+			answer: "While some courses may have recommended prerequisites, the majority are designed to accommodate learners of all levels. Our goal is to provide accessible education for everyone.",
 		},
 		{
-			question: "Can I cancel my subscription at any time?",
-			answer: "Yes, you can cancel your subscription at any time with no questions asked. We believe in providing flexibility to our learners.",
+			question: "Is it possible to cancel my subscription at any time?",
+			answer: "Yes, you may cancel your subscription at any time, without any questions asked. We strive to offer maximum flexibility to our learners.",
 		},
 	];
 
 	return (
 		<section
-			className="mx-auto max-w-7xl bg-gray-50 px-2 py-10 md:px-0"
+			className="mx-auto p-8 my-8 sm:my-12 max-w-7xl px-2 lg:px-8 rounded-lg bg-gray-100"
 			id="faq"
 		>
 			<div>
-				<div className="mx-auto max-w-2xl lg:text-center">
-					<h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-						Frequently Asked Questions
+				<div className="w-full text-center">
+					<h2 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-black">
+						<span className="text-orange">Got Questions?</span>{" "}
+						We've Got Answers
 					</h2>
-					<p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600 lg:mx-auto">
-						Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Facere, assumenda
+					<p className="max-w-xl leading-relaxed text-semibold text-slate-800 lg:mx-auto">
+						Explore Our FAQ Section for Quick Solutions to Common
+						Queries and Concerns.
 					</p>
 				</div>
+
 				<div className="mx-auto mt-8 max-w-3xl space-y-4 md:mt-16">
 					{faqData.map((faq, index) => (
 						<div
 							key={index}
-							className="cursor-pointer rounded-md border border-gray-400 shadow-lg transition-all duration-200"
+							className="py-4 cursor-pointer rounded-md border border-gray-400 hover:border-orange shadow-sm"
 						>
 							<button
 								type="button"
-								className="flex w-full items-center justify-between px-4 py-5 sm:p-6"
+								className="flex w-full items-center justify-between px-4 py-2"
 								onClick={() => toggleAccordion(index)}
 							>
 								<span className="flex text-lg font-semibold text-black">
@@ -64,9 +66,10 @@ const FAQ = () => {
 									<ChevronDown className="h-5 w-5 text-gray-500" />
 								)}
 							</button>
+
 							{openAccordion === index && (
-								<div className="px-4 pb-5 sm:px-6 sm:pb-6">
-									<p className="text-gray-500">
+								<div className="mt-2 px-4 py-2">
+									<p className="font-semibold text-gray-800">
 										{faq.answer}
 									</p>
 								</div>
@@ -74,7 +77,8 @@ const FAQ = () => {
 						</div>
 					))}
 				</div>
-				<p className="textbase mt-6 text-center text-gray-600">
+
+				<p className="mt-4 leading-relaxed text-semibold text-slate-800 text-center">
 					Can&apos;t find what you&apos;re looking for?{" "}
 					<a
 						href="#"
