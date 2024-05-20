@@ -38,7 +38,7 @@ const FAQ = () => {
 				<div className="w-full text-center">
 					<h2 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-black">
 						<span className="text-orange">Got Questions?</span>{" "}
-						We've Got Answers
+						We&apos;ve Got Answers
 					</h2>
 					<p className="max-w-xl leading-relaxed text-semibold text-slate-800 lg:mx-auto">
 						Explore Our FAQ Section for Quick Solutions to Common

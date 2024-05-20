@@ -20,7 +20,7 @@ const Hero = () => {
 							</span>
 							, your gateway to mastering technology.
 							<br />
-							Whether you're an aspiring developer or a seasoned
+							Whether you are an aspiring developer or a seasoned
 							pro, our teaching empower you with the skills needed
 							to thrive in the tech world.
 						</p>
