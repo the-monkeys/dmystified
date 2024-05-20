@@ -36,13 +36,13 @@ const Navbar = () => {
 
 	return (
 		<div className="sticky top-0 left-0 w-full z-50">
-			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8 bg-white/25 backdrop-blur-md">
+			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8 bg-white/25 backdrop-blur-xl">
 				<div className="inline-flex items-center space-x-2">
 					<Image
 						src="dmystified_logo_full.svg"
 						alt="Dmsytified"
-						width={120}
-						height={120}
+						width={130}
+						height={130}
 					/>
 				</div>
 
@@ -76,8 +76,8 @@ const Navbar = () => {
 									<Image
 										src="dmystified_logo.svg"
 										alt="Dmystified"
-										width={20}
-										height={20}
+										width={30}
+										height={30}
 									/>
 
 									<button
@@ -95,7 +95,7 @@ const Navbar = () => {
 									</button>
 								</div>
 
-								<div className="mt-4">
+								<div className="mt-2">
 									<nav className="flex flex-col gap-2">
 										{menuItems.map((item) => (
 											<a
