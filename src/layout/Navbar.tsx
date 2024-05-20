@@ -35,8 +35,8 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="sticky top-0 left-0 w-full z-50">
-			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8 bg-white/25 backdrop-blur-xl">
+		<div className="sticky top-0 left-0 w-full bg-white/25 backdrop-blur-xl z-50">
+			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8">
 				<div className="inline-flex items-center space-x-2">
 					<Image
 						src="dmystified_logo_full.svg"

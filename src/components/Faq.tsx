@@ -1,6 +1,6 @@
 "use client";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const FAQ = () => {
 	const [openAccordion, setOpenAccordion] = useState(null);
@@ -31,7 +31,7 @@ const FAQ = () => {
 
 	return (
 		<section
-			className="mx-auto p-8 my-8 sm:my-12 max-w-7xl px-2 lg:px-8 rounded-lg bg-gray-100"
+			className="mx-auto p-8 my-8 sm:my-12 max-w-7xl px-2 lg:px-8 rounded-lg bg-gray-50"
 			id="faq"
 		>
 			<div>
@@ -42,7 +42,7 @@ const FAQ = () => {
 					</h2>
 					<p className="max-w-xl leading-relaxed text-semibold text-slate-800 lg:mx-auto">
 						Explore Our FAQ Section for Quick Solutions to Common
-						Queries and Concerns.
+						Queries and Concerns
 					</p>
 				</div>
 
@@ -69,7 +69,7 @@ const FAQ = () => {
 
 							{openAccordion === index && (
 								<div className="mt-2 px-4 py-2">
-									<p className="font-semibold text-gray-800">
+									<p className="font-normal text-gray-800">
 										{faq.answer}
 									</p>
 								</div>

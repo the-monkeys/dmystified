@@ -23,18 +23,19 @@ const ContactUs = () => {
 	};
 
 	return (
-		<div className="mx-auto max-w-7xl px-4" id="contactUs">
+		<section className="mx-auto max-w-7xl px-4" id="contactUs">
 			<div className="mx-auto max-w-7xl py-12 md:py-24">
 				<div className="flex gap-4 flex-col md:flex-row items-end">
 					<div className="w-full md:w-1/2">
 						<div className="p-2">
 							<h3 className="py-2 font-bold text-2xl sm:text-3xl md:text-4xl">
-								Get in touch
+								Get in{" "}
+								<span className="text-orange">touch</span>
 							</h3>
 
 							<p className="mb-8 font-semibold text-sm text-slate-600">
 								We Value Your Input. Reach Out to Us with Any
-								Comments, Suggestions, or Questions.
+								Comments, Suggestions, or Questions
 							</p>
 
 							<form action="" className="mt-4 space-y-4">
@@ -79,13 +80,13 @@ const ContactUs = () => {
 										className="text-sm font-medium leading-none text-gray-700"
 										htmlFor="email"
 									>
-										Email
+										Email Address
 									</label>
 									<input
 										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
 										type="text"
 										id="email"
-										placeholder="Email"
+										placeholder="Email Address"
 										value={contactInfo.email}
 										onChange={handleChange}
 									/>
@@ -96,13 +97,13 @@ const ContactUs = () => {
 										className="text-sm font-medium leading-none text-gray-700"
 										htmlFor="contact"
 									>
-										Phone number
+										Contact Number
 									</label>
 									<input
 										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
 										type="tel"
 										id="contact"
-										placeholder="Phone number"
+										placeholder="Contact Number"
 										value={contactInfo.contact}
 										onChange={handleChange}
 									/>
@@ -146,7 +147,7 @@ const ContactUs = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

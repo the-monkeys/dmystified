@@ -1,11 +1,13 @@
 const FeatureCard = ({
 	title,
+	icon,
 	description,
 }: {
 	title: {
 		line1: string;
 		line2: string;
 	};
+	icon: JSX.Element;
 	description: string;
 }) => {
 	return (
@@ -17,6 +19,8 @@ const FeatureCard = ({
 				<br />
 				{title.line2}
 			</h3>
+
+			<div className="relative p-2 flex justify-center">{icon}</div>
 
 			<p className="relative mt-4 sm:mt-6 text-slate-900 text-xs sm:text-sm z-10">
 				{description}

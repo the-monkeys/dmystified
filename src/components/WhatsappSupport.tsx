@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
 
 const FloatingWhatsAppButton: React.FC = () => {
