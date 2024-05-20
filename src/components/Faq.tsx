@@ -46,7 +46,7 @@ const FAQ = () => {
 					</p>
 				</div>
 
-				<div className="mx-auto mt-8 max-w-3xl space-y-4 md:mt-16">
+				<div className="mx-auto mt-6 max-w-3xl space-y-4">
 					{faqData.map((faq, index) => (
 						<div
 							key={index}

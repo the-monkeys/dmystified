@@ -16,6 +16,17 @@ export function Footer() {
 					<p className="py-2 text-xs text-slate-700 font-semibold">
 						Dmystified, 2024, All Rights Reserved
 					</p>
+
+					<div className="text-sm font-semibold">
+						Follow us on{" "}
+						<a
+							href="https://x.com/dmystified_tech"
+							target="_blank"
+							className="font-bold text-orange"
+						>
+							Twitter
+						</a>
+					</div>
 				</div>
 
 				<div className="mr-4 p-4 flex-1 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
