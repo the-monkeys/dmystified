@@ -38,9 +38,12 @@ const PricingCard = ({
 
 			<div className="px-4 py-2">
 				<div className="gap-2 px-2 py-6 flex flex-col">
-					{features.map((feature) => {
+					{features.map((feature, index) => {
 						return (
-							<div className="flex items-center gap-2">
+							<div
+								className="flex items-center gap-2"
+								key={`${index}_${price}`}
+							>
 								<CheckCircle2 size={20} color="green" />
 								<p className="font-medium text-sm sm:text-base">
 									{feature}
