@@ -1,51 +1,44 @@
-import React from "react";
+import Image from "next/image";
 
 const Hero = () => {
-  return (
-    <section className="mx-auto max-w-7xl mt-3">
-      <div className="px-2 lg:flex lg:flex-row lg:items-center">
-        <div className="w-full lg:w-1/2">
-          <div className="my-10 lg:my-0 lg:px-10">
-            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Unlock Your Potential with Expert-Led Technology Courses
-            </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-600">
-              Welcome to Demystified, your gateway to mastering the intricate
-              world of technology. Whether you are an aspiring developer or a
-              seasoned professional looking to upgrade your skills, our
-              comprehensive courses are designed to empower you with the
-              knowledge and expertise you need to thrive in the ever-evolving
-              tech landscape.
-            </p>
-            <form action="#" method="POST" className="mt-8 max-w-xl">
-              <div className="flex flex-col sm:flex-row sm:items-center">
-                <div className="flex w-full max-w-sm items-center space-x-2">
-                  <input
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                    type="email"
-                    placeholder="Email"
-                  />
-                  <button
-                    type="button"
-                    className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="w-full lg:w-1/2">
-          <img
-            src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fGRldmVsb3BlcnxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
-            alt="ManWith Laptop"
-            className="h-full w-full rounded-md object-cover"
-          />
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section className="mx-auto max-w-7xl mt-6 px-4 cursor-default">
+			<div className="flex flex-col md:flex-row items-end sm:items-center">
+				<div className="w-full lg:w-1/2">
+					<div className="mb-4 lg:px-10">
+						<h2 className="text-4xl leading-tight font-bold text-black sm:text-5xl md:text-6xl">
+							<span className="text-orange italic">Empower</span>{" "}
+							Your Future with{" "}
+							<span className="text-orange italic">Expert</span>{" "}
+							Learning
+						</h2>
+
+						<p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-gray-800">
+							Welcome to{" "}
+							<span className="font-semibold text-black">
+								Dmystified
+							</span>
+							, your gateway to mastering technology.
+							<br />
+							Whether you are an aspiring developer or a seasoned
+							pro, our teaching empower you with the skills needed
+							to thrive in the tech world.
+						</p>
+					</div>
+				</div>
+
+				<div className="w-full lg:w-1/2 flex justify-end">
+					<Image
+						src="online_learning.svg"
+						alt="Learn with Experts"
+						width={300}
+						height={300}
+						className="md:w-full"
+					/>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Hero;
