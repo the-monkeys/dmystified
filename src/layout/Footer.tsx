@@ -3,7 +3,7 @@ import React from "react";
 
 export function Footer() {
 	return (
-		<section className="mx-auto my-8 sm:my-12 max-w-7xl px-2 lg:px-8">
+		<section className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8">
 			<div className="flex flex-wrap flex-col sm:flex-row items-start sm:items-center gap-4">
 				<div className="p-4">
 					<Image
@@ -13,11 +13,11 @@ export function Footer() {
 						height={130}
 					/>
 
-					<p className="py-2 text-xs text-slate-700 font-semibold">
+					<p className="py-2 text-xs text-gray-500 font-semibold">
 						Dmystified, 2024, All Rights Reserved
 					</p>
 
-					<div className="text-sm font-semibold">
+					<div className="mt-2 text-sm font-semibold">
 						Follow us on{" "}
 						<a
 							href="https://x.com/dmystified_tech"
@@ -49,13 +49,6 @@ export function Footer() {
 						href="#"
 					>
 						Return Policy
-					</a>
-
-					<a
-						className="text-sm font-medium text-gray-800 hover:text-black"
-						href="#"
-					>
-						Contact Us
 					</a>
 				</div>
 			</div>

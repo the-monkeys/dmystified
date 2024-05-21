@@ -31,16 +31,17 @@ const FAQ = () => {
 
 	return (
 		<section
-			className="mx-auto p-8 my-8 sm:my-12 max-w-7xl px-2 lg:px-8 rounded-lg bg-gray-50"
+			className="mx-auto p-8 my-8 sm:my-12 max-w-7xl px-4 lg:px-8 rounded-lg bg-gray-50"
 			id="faq"
 		>
 			<div>
-				<div className="w-full text-center">
+				<div className="mb-8 w-full text-center">
 					<h2 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-black">
 						<span className="text-orange">Got Questions?</span>{" "}
 						We&apos;ve Got Answers
 					</h2>
-					<p className="max-w-xl leading-relaxed text-semibold text-slate-800 lg:mx-auto">
+
+					<p className="max-w-xl leading-relaxed font-semibold text-gray-500 lg:mx-auto">
 						Explore Our FAQ Section for Quick Solutions to Common
 						Queries and Concerns
 					</p>
@@ -50,16 +51,17 @@ const FAQ = () => {
 					{faqData.map((faq, index) => (
 						<div
 							key={index}
-							className="py-4 cursor-pointer rounded-md border border-gray-400 hover:border-orange shadow-sm"
+							className="cursor-pointer rounded-md border border-gray-300 hover:border-orange shadow-sm"
 						>
 							<button
 								type="button"
 								className="flex w-full items-center justify-between px-4 py-2"
 								onClick={() => toggleAccordion(index)}
 							>
-								<span className="flex text-lg font-semibold text-black">
+								<span className="py-4 flex text-base sm:text-lg font-semibold text-black">
 									{faq.question}
 								</span>
+
 								{openAccordion === index ? (
 									<ChevronUp className="h-5 w-5 text-gray-500" />
 								) : (
@@ -68,8 +70,8 @@ const FAQ = () => {
 							</button>
 
 							{openAccordion === index && (
-								<div className="mt-2 px-4 py-2">
-									<p className="font-normal text-gray-800">
+								<div className="px-4 pb-4">
+									<p className="text-sm sm:text-base font-normal text-gray-800">
 										{faq.answer}
 									</p>
 								</div>
@@ -78,7 +80,7 @@ const FAQ = () => {
 					))}
 				</div>
 
-				<p className="mt-4 leading-relaxed text-semibold text-slate-800 text-center">
+				<p className="mt-4 leading-relaxed font-semibold text-gray-500 text-center">
 					Can&apos;t find what you&apos;re looking for?{" "}
 					<a
 						href="#"
