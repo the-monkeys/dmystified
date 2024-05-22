@@ -14,7 +14,7 @@ const FloatingWhatsAppButton: React.FC = () => {
 		<div className="fixed bottom-8 right-8 z-10">
 			<button
 				onClick={handleChatClick}
-				className="bg-orange text-white p-4  rounded-full shadow-lg"
+				className="bg-orange text-white p-4 rounded-full shadow-lg"
 				onMouseEnter={() => setShowTooltip(true)}
 				onMouseLeave={() => setShowTooltip(false)}
 			>

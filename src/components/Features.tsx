@@ -50,9 +50,11 @@ const Features = () => {
 			className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8"
 			id="features"
 		>
-			<h1 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-center">
-				Why Choose <span className="text-orange">Dmystified</span>?!
-			</h1>
+			<div className="mb-8 w-full text-center">
+				<h2 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-black">
+					Why Choose <span className="text-orange">Dmystified</span>?!
+				</h2>
+			</div>
 
 			<div className="mt-4 grid grid-cols-1 gap-y-4 text-center sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
 				{featureItems.map((feature) => {

@@ -23,17 +23,20 @@ const ContactUs = () => {
 	};
 
 	return (
-		<section className="mx-auto max-w-7xl px-4" id="contactUs">
+		<section
+			className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8	"
+			id="contactUs"
+		>
 			<div className="mx-auto max-w-7xl py-12 md:py-24">
-				<div className="flex gap-4 flex-col md:flex-row items-end">
+				<div className="flex gap-4 flex-col md:flex-row items-end lg:items-center">
 					<div className="w-full md:w-1/2">
-						<div className="p-2">
-							<h3 className="py-2 font-bold text-2xl sm:text-3xl md:text-4xl">
-								Get in{" "}
-								<span className="text-orange">touch</span>
-							</h3>
+						<div>
+							<h2 className="py-4 font-bold text-2xl sm:text-3xl md:text-4xl">
+								<span className="text-orange">Connect </span>{" "}
+								with Us
+							</h2>
 
-							<p className="mb-8 font-semibold text-sm text-slate-600">
+							<p className="mb-8 leading-relaxed font-semibold text-gray-500">
 								We Value Your Input. Reach Out to Us with Any
 								Comments, Suggestions, or Questions
 							</p>
@@ -42,13 +45,13 @@ const ContactUs = () => {
 								<div className="grid w-full gap-y-4 md:gap-x-4 lg:grid-cols-2">
 									<div className="grid w-full items-center gap-1.5">
 										<label
-											className="text-sm font-medium leading-none text-gray-700"
+											className="text-sm font-medium leading-none text-gray-800"
 											htmlFor="firstName"
 										>
 											First Name
 										</label>
 										<input
-											className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
+											className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-orange disabled:opacity-75"
 											type="text"
 											id="firstName"
 											placeholder="First Name"
@@ -59,13 +62,13 @@ const ContactUs = () => {
 
 									<div className="grid w-full items-center gap-1.5">
 										<label
-											className="text-sm font-medium leading-none text-gray-700"
+											className="text-sm font-medium leading-none text-gray-800"
 											htmlFor="lastName"
 										>
 											Last Name
 										</label>
 										<input
-											className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
+											className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-orange disabled:opacity-75"
 											type="text"
 											id="lastName"
 											placeholder="Last Name"
@@ -77,13 +80,13 @@ const ContactUs = () => {
 
 								<div className="grid w-full items-center gap-1.5">
 									<label
-										className="text-sm font-medium leading-none text-gray-700"
+										className="text-sm font-medium leading-none text-gray-800"
 										htmlFor="email"
 									>
 										Email Address
 									</label>
 									<input
-										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
+										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-orange disabled:opacity-75"
 										type="text"
 										id="email"
 										placeholder="Email Address"
@@ -94,13 +97,13 @@ const ContactUs = () => {
 
 								<div className="grid w-full items-center gap-1.5">
 									<label
-										className="text-sm font-medium leading-none text-gray-700"
+										className="text-sm font-medium leading-none text-gray-800"
 										htmlFor="contact"
 									>
 										Contact Number
 									</label>
 									<input
-										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
+										className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-orange disabled:opacity-75"
 										type="tel"
 										id="contact"
 										placeholder="Contact Number"
@@ -111,13 +114,13 @@ const ContactUs = () => {
 
 								<div className="grid w-full items-center gap-1.5">
 									<label
-										className="text-sm font-medium leading-none text-gray-700"
+										className="text-sm font-medium leading-none text-gray-800"
 										htmlFor="message"
 									>
 										Message
 									</label>
 									<textarea
-										className="flex w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:border-orange disabled:opacity-75"
+										className="flex w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:border-orange disabled:opacity-75"
 										id="message"
 										placeholder="Leave us a message"
 										cols={3}
@@ -136,7 +139,7 @@ const ContactUs = () => {
 						</div>
 					</div>
 
-					<div className="hidden md:block flex-1">
+					<div className="flex-1 hidden md:block">
 						<Image
 							src="/contact_us.svg"
 							alt="Contact Us"

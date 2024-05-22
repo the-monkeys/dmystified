@@ -35,16 +35,17 @@ const Pricing = () => {
 			className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8"
 			id="pricing"
 		>
-			<div className="w-full text-center">
+			<div className="mb-8 w-full text-center">
 				<h2 className="py-4 sm:py-6 font-bold text-2xl sm:text-3xl md:text-4xl text-black">
 					<span className="text-orange">Pricing</span> Options
 				</h2>
-				<p className="max-w-xl leading-relaxed text-semibold text-slate-800 lg:mx-auto">
+
+				<p className="max-w-xl leading-relaxed font-semibold text-gray-500 lg:mx-auto">
 					Select the Plan That Fits You Best
 				</p>
 			</div>
 
-			<div className="mt-8 flex justify-evenly flex-wrap gap-4">
+			<div className="flex justify-evenly flex-wrap gap-4">
 				{pricingItems.map((pricing) => {
 					return <PricingCard key={pricing.id} pricing={pricing} />;
 				})}

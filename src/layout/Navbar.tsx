@@ -35,7 +35,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="sticky top-0 left-0 w-full bg-white/25 backdrop-blur-xl z-50">
+		<div className="sticky top-0 left-0 w-full bg-white/50 backdrop-blur-lg z-50">
 			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8">
 				<div className="inline-flex items-center space-x-2">
 					<Image
@@ -83,7 +83,7 @@ const Navbar = () => {
 									<button
 										type="button"
 										onClick={toggleMenu}
-										className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+										className="inline-flex items-center justify-center p-2 text-gray-500 hover:text-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
 									>
 										<span className="sr-only">
 											Close menu
@@ -101,7 +101,7 @@ const Navbar = () => {
 											<a
 												key={item.name}
 												href={item.href}
-												className="w-full py-2 rounded-md font-semibold text-black text-sm text-center hover:bg-orange/25 uppercase"
+												className="w-full py-2 rounded-md font-semibold text-black text-sm text-center hover:bg-orange/15 uppercase"
 											>
 												{item.name}
 											</a>
