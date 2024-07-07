@@ -38,6 +38,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 				{...props}
 			/>
 		),
+		h5: (props) => (
+			<h4
+				style={{
+					fontSize: "18px",
+					fontWeight: "600",
+				}}
+				{...props}
+			/>
+		),
 		p: (props) => (
 			<p
 				style={{
