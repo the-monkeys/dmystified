@@ -3,56 +3,58 @@
 import React from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-const menuItems = [
-	{
-		name: "Home",
-		href: "#",
-	},
-	{
-		name: "Courses",
-		href: "#courses",
-	},
-	{
-		name: "Pricing",
-		href: "#pricing",
-	},
-	{
-		name: "FAQ",
-		href: "#faq",
-	},
-	{
-		name: "Contact",
-		href: "#contactUs",
-	},
-];
+import { navItems } from "@/constants/navigation";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const [prevScrollpos, setPrevScrollpos] = React.useState(0);
+	const [top, setTop] = React.useState(0);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
+	React.useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollPos = window.scrollY;
+			if (prevScrollpos > currentScrollPos) {
+				setTop(0);
+			} else {
+				setTop(-50);
+			}
+			setPrevScrollpos(currentScrollPos);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [prevScrollpos]);
+
 	return (
-		<div className="sticky top-0 left-0 w-full bg-white/50 backdrop-blur-lg z-50">
+		<div
+			className={`sticky top-${top} left-0 w-full bg-white/50 backdrop-blur-lg z-50`}
+		>
 			<div className="mx-auto max-w-7xl flex items-center justify-between p-4 sm:px-6 lg:px-8">
-				<div className="inline-flex items-center space-x-2">
+				<Link href="/" className="inline-flex items-center space-x-2">
 					<Image
 						src="dmystified_logo_full.svg"
 						alt="Dmsytified"
 						width={130}
 						height={130}
 					/>
-				</div>
+				</Link>
 
 				<div className="hidden md:block">
 					<ul className="inline-flex space-x-8">
-						{menuItems.map((item) => (
+						{navItems.map((item) => (
 							<li key={item.name}>
 								<a
 									href={item.href}
-									className="text-sm font-semibold text-black hover:text-orange uppercase"
+									className="text-sm font-medium text-black hover:text-orange"
 								>
 									{item.name}
 								</a>
@@ -73,12 +75,14 @@ const Navbar = () => {
 						<div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
 							<div className="p-2">
 								<div className="flex items-center justify-between">
-									<Image
-										src="dmystified_logo.svg"
-										alt="Dmystified"
-										width={30}
-										height={30}
-									/>
+									<Link href="/">
+										<Image
+											src="dmystified_logo.svg"
+											alt="Dmystified"
+											width={30}
+											height={30}
+										/>
+									</Link>
 
 									<button
 										type="button"
@@ -97,11 +101,11 @@ const Navbar = () => {
 
 								<div className="mt-2">
 									<nav className="flex flex-col gap-2">
-										{menuItems.map((item) => (
+										{navItems.map((item) => (
 											<a
 												key={item.name}
 												href={item.href}
-												className="w-full py-2 rounded-md font-semibold text-black text-sm text-center hover:bg-orange/15 uppercase"
+												className="w-full py-2 rounded-md font-medium text-black text-sm text-center hover:bg-orange/15"
 											>
 												{item.name}
 											</a>

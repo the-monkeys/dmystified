@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export function Footer() {
 	return (
 		<section className="mx-auto my-8 sm:my-12 max-w-7xl px-4 lg:px-8">
 			<div className="flex flex-wrap flex-col sm:flex-row items-start sm:items-center gap-4">
-				<div className="p-4">
+				<div>
 					<Image
 						src="dmystified_logo_full.svg"
 						alt="Dmystified"
@@ -13,19 +14,18 @@ export function Footer() {
 						height={130}
 					/>
 
-					<p className="py-2 text-xs text-gray-500 font-semibold">
+					<p className="py-2 text-xs text-gray-900">
 						Dmystified, 2024, All Rights Reserved
 					</p>
 
-					<div className="mt-2 text-sm font-semibold">
-						Follow us on{" "}
-						<a
+					<div className="flex">
+						<Link
 							href="https://x.com/dmystified_tech"
 							target="_blank"
-							className="font-bold text-orange"
+							className="text-orange hover:text-black text-sm font-semibold"
 						>
 							Twitter
-						</a>
+						</Link>
 					</div>
 				</div>
 

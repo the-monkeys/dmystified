@@ -14,8 +14,8 @@ const PricingCard = ({
 	const { title, price, description, features, isRecommended } = pricing;
 
 	return (
-		<div className="group w-96 flex flex-col border-1 border-gray-200 rounded-lg overflow-hidden hover:border-gray-300">
-			<div className="px-4 pt-4 pb-2 border-b-1 border-gray-200">
+		<div className="group w-96 flex flex-col border-1 border-gray-300 rounded-lg overflow-hidden hover:border-gray-400">
+			<div className="px-4 pt-4 pb-2 border-b-1 border-gray-300 cursor-default">
 				<div className="flex items-center gap-2">
 					<p className="w-fit px-4 text-xs sm:text-sm border-1 border-black rounded-full">
 						{title}
@@ -31,12 +31,13 @@ const PricingCard = ({
 				<h2 className="mt-6 font-semibold text-4xl sm:text-5xl text-orange">
 					${price}
 				</h2>
+
 				<p className="font-semibold text-sm text-gray-800">
 					{description}
 				</p>
 			</div>
 
-			<div className="px-4 py-2">
+			<div className="px-4 py-2 cursor-default">
 				<div className="gap-2 px-2 py-6 flex flex-col">
 					{features.map((feature, index) => {
 						return (
