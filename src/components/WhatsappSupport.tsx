@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
+import { Button } from "./ui/button";
 
 const FloatingWhatsAppButton: React.FC = () => {
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -12,14 +13,15 @@ const FloatingWhatsAppButton: React.FC = () => {
 
 	return (
 		<div className="fixed bottom-8 right-8 z-10">
-			<button
+			<Button
+				size="icon"
 				onClick={handleChatClick}
-				className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-none"
 				onMouseEnter={() => setShowTooltip(true)}
 				onMouseLeave={() => setShowTooltip(false)}
+				className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:shadow-none"
 			>
 				<BsWhatsapp size={18} />
-			</button>
+			</Button>
 
 			{showTooltip && (
 				<div className="absolute w-fit bottom-12 right-4 border-1 border-green-500 bg-white text-black px-4 py-2 rounded-lg text-nowrap shadow-lg">

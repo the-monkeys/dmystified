@@ -8,16 +8,24 @@ const Features = () => {
 			id="features"
 		>
 			<div className="mb-8 w-full text-center cursor-default">
-				<h2 className="pt-4 sm:pt-6 pb-2 font-semibold text-2xl sm:text-3xl md:text-4xl text-black">
-					Why Choose <span className="text-orange">Dmystified</span>?!
+				<h2 className="pt-4 sm:pt-6 pb-2 text-2xl sm:text-3xl md:text-4xl text-black">
+					Why Choose{" "}
+					<span className="font-medium text-orange">Dmystified</span>
+					?!
 				</h2>
+
+				<p className="max-w-xl leading-relaxed text-gray-500 text-sm sm:text-base lg:mx-auto">
+					Discover the benefits of our platform designed to provide an
+					exceptional learning experience.
+				</p>
 			</div>
 
-			<div className="mt-4 grid grid-cols-1 gap-y-4 text-center sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+			<div className="mt-4 grid grid-cols-2 gap-2">
 				{featureItems.map((feature) => {
 					return (
 						<FeatureCard
 							key={feature.id}
+							id={feature.id}
 							title={feature.title}
 							icon={feature.icon}
 							description={feature.description}

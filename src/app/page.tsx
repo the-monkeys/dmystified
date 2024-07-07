@@ -11,8 +11,8 @@ export default function HomePage() {
 	return (
 		<div className="w-full bg-white">
 			<Hero />
-			<Courses />
 			<Features />
+			<Courses />
 			<Pricing />
 			<FAQ />
 			<ContactUs />

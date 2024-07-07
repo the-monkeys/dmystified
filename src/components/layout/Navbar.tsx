@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { navItems } from "@/constants/navigation";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -63,12 +64,13 @@ const Navbar = () => {
 					</ul>
 				</div>
 
-				<div className="md:hidden">
-					<Menu
-						onClick={toggleMenu}
-						className="h-6 w-6 cursor-pointer"
-					/>
-				</div>
+				<Button
+					size="icon"
+					variant="ghost"
+					className="md:hidden rounded-full"
+				>
+					<Menu size="20" onClick={toggleMenu} />
+				</Button>
 
 				{isMenuOpen && (
 					<div className="w-full absolute top-0 left-0 z-50 transform p-2 transition md:hidden">
@@ -79,24 +81,20 @@ const Navbar = () => {
 										<Image
 											src="dmystified_logo.svg"
 											alt="Dmystified"
-											width={30}
-											height={30}
+											width={22}
+											height={22}
 										/>
 									</Link>
 
-									<button
+									<Button
+										size="icon"
+										variant="ghost"
 										type="button"
 										onClick={toggleMenu}
-										className="inline-flex items-center justify-center p-2 text-gray-500 hover:text-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+										className="rounded-full"
 									>
-										<span className="sr-only">
-											Close menu
-										</span>
-										<X
-											className="h-6 w-6"
-											aria-hidden="true"
-										/>
-									</button>
+										<X size="20" aria-hidden="true" />
+									</Button>
 								</div>
 
 								<div className="mt-2">
