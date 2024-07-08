@@ -1,4 +1,6 @@
-import { CheckCircle2 } from "lucide-react";
+import { Check, Wallet } from "lucide-react";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 const PricingCard = ({
 	pricing,
@@ -14,50 +16,50 @@ const PricingCard = ({
 	const { title, price, description, features, isRecommended } = pricing;
 
 	return (
-		<div className="group w-96 flex flex-col border-1 border-gray-300 rounded-lg overflow-hidden hover:border-gray-400">
-			<div className="px-4 pt-4 pb-2 border-b-1 border-gray-300 cursor-default">
-				<div className="flex items-center gap-2">
-					<p className="w-fit px-4 text-xs sm:text-sm border-1 border-black rounded-full">
-						{title}
-					</p>
+		<div className="group w-80 flex flex-col border-1 border-gray-300 rounded-lg cursor-default overflow-hidden">
+			<div className="p-4 pb-0 border-b-1 border-gray-300 cursor-default">
+				<div className="flex items-center justify-end gap-2">
+					<Badge variant="secondary">{title}</Badge>
 
 					{isRecommended && (
-						<p className="w-fit px-4 text-xs sm:text-sm border-1 border-black bg-black text-white rounded-full">
-							Recommended
-						</p>
+						<Badge variant="orange">Recommended</Badge>
 					)}
 				</div>
 
-				<h2 className="mt-6 font-semibold text-4xl sm:text-5xl text-orange">
+				<h2 className="py-2 font-semibold text-3xl sm:text-4xl">
 					${price}
 				</h2>
 
-				<p className="font-semibold text-sm text-gray-800">
+				<p className="py-1 font-medium text-sm text-gray-800">
 					{description}
 				</p>
 			</div>
 
-			<div className="px-4 py-2 cursor-default">
-				<div className="gap-2 px-2 py-6 flex flex-col">
+			<div className="p-4 space-y-4">
+				<div className="py-4 space-y-2">
 					{features.map((feature, index) => {
 						return (
 							<div
 								className="flex items-center gap-2"
 								key={`${index}_${price}`}
 							>
-								<CheckCircle2 size={20} color="green" />
-								<p className="font-medium text-sm sm:text-base">
-									{feature}
-								</p>
+								<Check size="16" color="green" />
+
+								<p className="text-sm">{feature}</p>
 							</div>
 						);
 					})}
 				</div>
-			</div>
 
-			<button className="flex justify-center w-full py-4 bg-black group-hover:bg-orange">
-				<p className="text-white">Choose Plan</p>
-			</button>
+				<Button
+					type="button"
+					variant={isRecommended ? "orange" : "secondary"}
+					className="w-full"
+				>
+					<Wallet size="16" className="mr-2" />
+					Choose Plan
+				</Button>
+			</div>
 		</div>
 	);
 };

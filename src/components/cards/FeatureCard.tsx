@@ -3,19 +3,20 @@ const FeatureCard = ({
 	icon,
 	description,
 }: {
+	id: number;
 	title: string;
 	icon: JSX.Element;
 	description: string;
 }) => {
 	return (
-		<div className="px-4 py-2 rounded-lg flex flex-col items-center border-1 border-gray-300 hover:border-gray-400 hover:shadow-md cursor-default overflow-hidden">
-			<div className="p-2 text-orange">{icon}</div>
+		<div className="col-span-2 sm:col-span-1 px-4 py-2 space-y-1 rounded-lg shadow-md">
+			<div className="mb-2 size-10 sm:size-12 rounded-full flex justify-center items-center bg-black text-white shadow-md">
+				{icon}
+			</div>
 
-			<h3 className="w-full sm:w-4/5 flex-1 font-semibold text-lg sm:text-xl text-center">
-				{title}
-			</h3>
+			<h3 className="font-semibold text-base sm:text-lg">{title}</h3>
 
-			<p className="mt-2 p-2 text-sm opacity-75">{description}</p>
+			<p className="text-sm sm:text-base opacity-75">{description}</p>
 		</div>
 	);
 };
