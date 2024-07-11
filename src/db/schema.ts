@@ -13,11 +13,11 @@ import {
 export const CourseTable = pgTable("course", {
 	id: serial("id").primaryKey(),
 	title: varchar("title", { length: 128 }).notNull(),
-	description: text("description"),
+	description: text("description").notNull(),
 	language: varchar("language", { length: 64 })
 		.array()
 		.notNull()
-		.default(sql`{}::varchar[]`),
+		.default(sql`ARRAY[]::varchar[]`),
 	isLive: boolean("isLive").notNull().default(false),
 	createdAt: timestamp("createdAt").notNull().defaultNow(),
 	updatedAt: timestamp("updatedAt").notNull().defaultNow(),
@@ -30,7 +30,7 @@ export const SectionTable = pgTable("section", {
 	order: integer("order").notNull(),
 	createdAt: timestamp("createdAt").notNull().defaultNow(),
 	updatedAt: timestamp("updatedAt").notNull().defaultNow(),
-	courseId: serial("courseId")
+	courseId: integer("courseId")
 		.notNull()
 		.references(() => CourseTable.id),
 });
