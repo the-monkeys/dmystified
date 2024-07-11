@@ -13,7 +13,11 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
 			<div className="flex justify-end gap-1">
 				<Badge variant="secondary">
 					{course.isLive && (
-						<Icon name="RiLive" className="text-red-600 mr-1" />
+						<Icon
+							name="RiLive"
+							className="text-red-600 mr-1"
+							size={18}
+						/>
 					)}
 					{course.isLive ? "Live" : "Upcoming"}
 				</Badge>

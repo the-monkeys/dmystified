@@ -11,7 +11,6 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Icon from "@/components/icon";
 
 export async function generateMetadata(
 	{ params }: { params: { courseId: string } },
@@ -37,8 +36,8 @@ export default async function CoursePage({
 	const MdxComponent = await getMdxComponent(course.id);
 
 	return (
-		<div className="mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen space-y-6">
-			<Breadcrumb>
+		<div className="mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen">
+			<Breadcrumb className="mx-2 mb-4">
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink href="/#courses">
@@ -47,7 +46,9 @@ export default async function CoursePage({
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
-						<BreadcrumbPage>{course.title}</BreadcrumbPage>
+						<BreadcrumbPage className="cursor-default">
+							{course.title}
+						</BreadcrumbPage>
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
@@ -55,33 +56,17 @@ export default async function CoursePage({
 			<CourseInfo courseName={course.id} />
 
 			{MdxComponent && (
-				<div className="space-y-2">
-					<p className="font-semibold text-lg sm:text-xl">
-						Course Curriculum
-					</p>
+				<div className="mt-10 px-4 flex flex-col gap-4">
+					<h4 className="self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200">
+						Course{" "}
+						<span className="font-semibold text-orange">
+							Curriculum
+						</span>
+					</h4>
 
-					<div className="space-y-1">
-						<p className="text-gray-800">
-							<Icon
-								name="RiFileList2"
-								className="inline-block mr-2"
-							/>
-							<span className="font-medium">
-								{course.sectionCount} section(s)
-							</span>
-						</p>
-
-						<p className="text-gray-800">
-							<Icon name="RiTime" className="inline-block mr-2" />
-							<span className="font-medium">
-								{course.durationInHours} Hours
-							</span>
-						</p>
-					</div>
+					<MdxComponent />
 				</div>
 			)}
-
-			{MdxComponent && <MdxComponent />}
 		</div>
 	);
 }

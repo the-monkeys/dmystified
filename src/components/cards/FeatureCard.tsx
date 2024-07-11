@@ -13,7 +13,7 @@ const FeatureCard = ({
 	description: string;
 }) => {
 	return (
-		<div className="relative group h-52 md:h-60 col-span-2 md:col-span-1 p-4 sm:p-6 flex flex-col justify-between rounded-3xl shadow-md shadow-gray-100 overflow-hidden">
+		<div className="relative group h-52 md:h-60 col-span-2 md:col-span-1 p-4 sm:p-6 flex flex-col justify-between rounded-3xl shadow-lg hover:shadow-none shadow-gray-200 overflow-hidden transition">
 			<div className="absolute top-0 right-0 size-40 opacity-80 group-hover:opacity-100">
 				<Image
 					src={`./${imageName}.svg`}

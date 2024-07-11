@@ -10,9 +10,7 @@ export type IconName =
 	| "RiMore"
 	| "RiCheck"
 	| "RiWallet"
-	| "RiTime"
-	| "RiLive"
-	| "RiFileList2";
+	| "RiLive";
 
 export type IconProps = {
 	name: IconName;

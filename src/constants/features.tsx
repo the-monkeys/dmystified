@@ -1,7 +1,7 @@
 export const featureItems = [
 	{
 		id: 1,
-		title: "Live Expert Classes",
+		title: "Expert-Led Live Classes",
 		tag: "Live Classes",
 		imageName: "abstract1",
 		description:
@@ -9,7 +9,7 @@ export const featureItems = [
 	},
 	{
 		id: 2,
-		title: "Open Source Journey",
+		title: "Open Source Onboarding",
 		tag: "Open Source",
 		imageName: "abstract2",
 		description:
@@ -17,7 +17,7 @@ export const featureItems = [
 	},
 	{
 		id: 3,
-		title: "One-on-One Mentorship",
+		title: "Personalized Mentorship",
 		tag: "Mentorship",
 		imageName: "abstract3",
 		description:
