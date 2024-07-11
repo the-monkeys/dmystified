@@ -1,32 +1,34 @@
-import { GitMerge, GraduationCap, ScrollText, Tv } from "lucide-react";
-
 export const featureItems = [
 	{
 		id: 1,
-		title: "Expert-Led Live Sessions",
-		icon: <Tv size={24} />,
+		title: "Live Expert Classes",
+		tag: "Live Classes",
+		imageName: "abstract1",
 		description:
-			"Immerse yourself in our dynamic learning environment by joining our expert-led live classes. ",
+			"Join our dynamic live classes led by industry experts and transform your learning experience.",
 	},
 	{
 		id: 2,
-		title: "Open Source Onboarding",
-		icon: <GitMerge size={24} />,
+		title: "Open Source Journey",
+		tag: "Open Source",
+		imageName: "abstract2",
 		description:
-			"Venture into the vibrant world of open source with our guidance and support. ",
+			"Dive into the vibrant world of open source with our comprehensive guidance and support.",
 	},
 	{
 		id: 3,
-		title: "Personalized Mentorship",
-		icon: <GraduationCap size={24} />,
+		title: "One-on-One Mentorship",
+		tag: "Mentorship",
+		imageName: "abstract3",
 		description:
-			"Elevate your learning experience with personalized guidance tailored to your individual needs. ",
+			"Elevate your skills with personalized guidance tailored to your individual needs.",
 	},
 	{
 		id: 4,
-		title: "Comprehensive Curriculum",
-		icon: <ScrollText size={24} />,
+		title: "In-Depth Curriculum",
+		tag: "Curriculum",
+		imageName: "abstract4",
 		description:
-			"Begin a structured learning journey to equip yourself with deep understanding of key concepts. ",
+			"Embark on a structured learning journey to master key concepts with a deep understanding.",
 	},
 ];

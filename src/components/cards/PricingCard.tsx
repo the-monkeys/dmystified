@@ -1,6 +1,8 @@
-import { Check, Wallet } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import Icon from "../icon";
+import { Separator } from "../ui/separator";
+import { twMerge } from "tailwind-merge";
 
 const PricingCard = ({
 	pricing,
@@ -16,47 +18,66 @@ const PricingCard = ({
 	const { title, price, description, features, isRecommended } = pricing;
 
 	return (
-		<div className="group w-80 flex flex-col border-1 border-gray-300 rounded-lg cursor-default overflow-hidden">
-			<div className="p-4 pb-0 border-b-1 border-gray-300 cursor-default">
-				<div className="flex items-center justify-end gap-2">
-					<Badge variant="secondary">{title}</Badge>
+		<div
+			className={twMerge(
+				"group w-80 flex flex-col border-1 border-gray-200 rounded-lg cursor-default overflow-hidden",
+				isRecommended && "border-orange"
+			)}
+		>
+			<div className="p-4 space-y-4 cursor-default">
+				<Badge variant="outline" className="text-sm">
+					{title}
+				</Badge>
 
-					{isRecommended && (
-						<Badge variant="orange">Recommended</Badge>
-					)}
+				<div className="flex">
+					<p className="self-start font-medium text-lg">$</p>
+					<p className="font-semibold text-3xl sm:text-4xl">
+						{price}
+					</p>
+					<p className="px-1 self-end font-medium text-sm text-gray-500">
+						/per month
+					</p>
 				</div>
-
-				<h2 className="py-2 font-semibold text-3xl sm:text-4xl">
-					${price}
-				</h2>
-
-				<p className="py-1 font-medium text-sm text-gray-800">
-					{description}
-				</p>
 			</div>
 
-			<div className="p-4 space-y-4">
-				<div className="py-4 space-y-2">
+			<Separator />
+
+			<div className="flex-1 p-4">
+				<p className="font-medium">Features</p>
+
+				<p className="pt-1 text-sm text-gray-800">{description}</p>
+
+				<div className="mt-4 space-y-2">
 					{features.map((feature, index) => {
 						return (
 							<div
 								className="flex items-center gap-2"
 								key={`${index}_${price}`}
 							>
-								<Check size="16" color="green" />
+								<Icon
+									name="RiCheck"
+									className="text-green-500"
+								/>
 
 								<p className="text-sm">{feature}</p>
 							</div>
 						);
 					})}
 				</div>
+			</div>
 
+			<Separator />
+
+			<div className="p-4">
 				<Button
 					type="button"
-					variant={isRecommended ? "orange" : "secondary"}
-					className="w-full"
+					className={twMerge(
+						"w-full rounded-md",
+						isRecommended &&
+							"text-white bg-orange hover:bg-orange/80"
+					)}
 				>
-					<Wallet size="16" className="mr-2" />
+					<Icon name="RiWallet" className="mr-1" />
 					Choose Plan
 				</Button>
 			</div>

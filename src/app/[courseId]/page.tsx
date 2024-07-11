@@ -11,8 +11,7 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Link from "next/link";
-import { Clock, Text } from "lucide-react";
+import Icon from "@/components/icon";
 
 export async function generateMetadata(
 	{ params }: { params: { courseId: string } },
@@ -63,14 +62,17 @@ export default async function CoursePage({
 
 					<div className="space-y-1">
 						<p className="text-gray-800">
-							<Text size={16} className="inline-block mr-2" />
+							<Icon
+								name="RiFileList2"
+								className="inline-block mr-2"
+							/>
 							<span className="font-medium">
 								{course.sectionCount} section(s)
 							</span>
 						</p>
 
 						<p className="text-gray-800">
-							<Clock size={16} className="inline-block mr-2" />
+							<Icon name="RiTime" className="inline-block mr-2" />
 							<span className="font-medium">
 								{course.durationInHours} Hours
 							</span>

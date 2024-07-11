@@ -1,11 +1,12 @@
 import React from "react";
 
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import Pricing from "@/components/Pricing";
-import ContactUs from "@/components/ContactUs";
-import FAQ from "@/components/Faq";
-import Courses from "@/components/Courses";
+import Hero from "@/components/sections/Hero";
+import { Separator } from "@/components/ui/separator";
+import Features from "@/components/sections/Features";
+import Courses from "@/components/sections/Courses";
+import Pricing from "@/components/sections/Pricing";
+import FAQ from "@/components/sections/Faq";
+import ContactUs from "@/components/sections/ContactUs";
 
 export default function HomePage() {
 	return (
@@ -16,6 +17,7 @@ export default function HomePage() {
 			<Pricing />
 			<FAQ />
 			<ContactUs />
+			<Separator />
 		</div>
 	);
 }

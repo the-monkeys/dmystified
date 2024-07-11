@@ -1,7 +1,7 @@
+import Icon from "@/components/icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { courseList } from "@/constants/courses";
-import { Radio } from "lucide-react";
 import Image from "next/image";
 
 const CourseInfo = ({ courseName }: { courseName: string }) => {
@@ -12,16 +12,14 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
 			<div className="flex justify-end gap-2">
 				<Badge variant="secondary">
 					{course.isLive && (
-						<Radio size={16} className="text-red-600 mr-2" />
+						<Icon name="RiLive" className="text-red-600 mr-1" />
 					)}
 					{course.isLive ? "Live" : "Upcoming"}
 				</Badge>
-
-				{course.onHold && <Badge variant="destructive">On Hold</Badge>}
 			</div>
 
 			<div>
-				<div className="w-fit h-10">
+				<div className="w-fit h-12">
 					<Image
 						src={course.imagePath || ""}
 						alt={course.title}
@@ -59,7 +57,7 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
 				</p>
 			</div>
 
-			<Button variant="orange" disabled={!course.isLive} type="button">
+			<Button disabled={!course.isLive} type="button">
 				Enroll Now
 			</Button>
 		</div>

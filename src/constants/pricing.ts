@@ -3,7 +3,8 @@ export const pricingItems = [
 		id: 1,
 		title: "Essential",
 		price: "100",
-		description: "One-time purchase of",
+		description:
+			"Kickstart your journey with the fundamentals and community support.",
 		features: [
 			"Exclusive Access to WhatsApp Group",
 			"Live Interactive Classes",
@@ -16,7 +17,8 @@ export const pricingItems = [
 		id: 2,
 		title: "Advance",
 		price: "150",
-		description: "One-time purchase of",
+		description:
+			"Take your skills to the next level with advanced features and personalized feedback.",
 		features: [
 			"Everything included in Essential",
 			"Bi-Weekly Coding Challenges",
