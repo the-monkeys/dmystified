@@ -9,35 +9,39 @@ import { Footer } from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://dmystified.tech/"),
-	alternates: {
-		canonical: "/",
-		languages: {
-			"en-US": "/en-US",
-			"de-DE": "/de-DE",
-		},
-	},
-	title: "Dmystified - Empower Your Future with Expert Learning",
-	description:
-		"Welcome to Dmystified, your gateway to mastering technology.Whether you are an aspiring developer or a seasoned pro, our teaching empower you with the skills needed to thrive in the tech world.",
-	twitter: {
-		card: "summary_large_image",
-	},
+  metadataBase: new URL("https://dmystified.tech/"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+      "de-DE": "/de-DE",
+    },
+  },
+  title: "Affordable Live Tech Courses for Developers | Dmystified",
+
+  description:
+    "Join Dmystified for affordable live tech courses tailored for developers. Learn programming languages online from expert instructors in real-time. Empower your tech career with hands-on experience and practical skills. Enroll now and start your journey towards becoming a proficient developer.",
+  twitter: {
+    card: "summary_large_image",
+  },
+  verification: {
+    google: "ikm_TGlrqUSyjmjmNUTMShS5NZQEj-SQjDhU36Wq_es",
+  },
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<Navbar />
-				<FloatingWhatsAppButton />
-				{children}
-				<Footer />
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Navbar />
+        <FloatingWhatsAppButton />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 }
