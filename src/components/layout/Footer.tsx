@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export function Footer() {
 	return (
-		<section className="mx-auto my-8 sm:my-12 max-w-7xl px-2 lg:px-8">
+		<section className="mx-auto py-6 max-w-7xl px-4 lg:px-8 border-t-1 border-gray-200">
 			<div className="flex flex-wrap flex-col sm:flex-row items-start sm:items-center gap-4">
-				<div className="p-4">
+				<div>
 					<Image
 						src="dmystified_logo_full.svg"
 						alt="Dmystified"
@@ -13,23 +14,22 @@ export function Footer() {
 						height={130}
 					/>
 
-					<p className="py-2 text-xs text-slate-700 font-semibold">
+					<p className="py-2 text-xs text-gray-900">
 						Dmystified, 2024, All Rights Reserved
 					</p>
 
-					<div className="text-sm font-semibold">
-						Follow us on{" "}
-						<a
+					<div className="flex">
+						<Link
 							href="https://x.com/dmystified_tech"
 							target="_blank"
-							className="font-bold text-orange"
+							className="text-orange hover:text-black text-sm font-semibold"
 						>
 							Twitter
-						</a>
+						</Link>
 					</div>
 				</div>
 
-				<div className="mr-4 p-4 flex-1 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+				<div className="flex-1 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
 					<a
 						className="text-sm font-medium text-gray-800 hover:text-black"
 						href="#"
@@ -49,13 +49,6 @@ export function Footer() {
 						href="#"
 					>
 						Return Policy
-					</a>
-
-					<a
-						className="text-sm font-medium text-gray-800 hover:text-black"
-						href="#"
-					>
-						Contact Us
 					</a>
 				</div>
 			</div>

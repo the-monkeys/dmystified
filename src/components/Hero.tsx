@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
 	return (
-		<section className="mx-auto max-w-7xl mt-6 px-4 cursor-default">
+		<section className="mx-auto max-w-7xl mb-6 sm:mb-8 px-4 pt-10 cursor-default">
 			<div className="flex flex-col md:flex-row items-end sm:items-center">
 				<div className="w-full lg:w-1/2">
 					<div className="mb-4 lg:px-10">
@@ -15,25 +15,20 @@ const Hero = () => {
 
 						<p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-gray-800">
 							Welcome to{" "}
-							<span className="font-semibold text-black">
-								Dmystified
-							</span>
-							, your gateway to mastering technology.
-							<br />
-							Whether you are an aspiring developer or a seasoned
-							pro, our teaching empower you with the skills needed
-							to thrive in the tech world.
+							<span className="text-black">Dmystified</span>,
+							where you master technology skills to thrive in the
+							tech world.
 						</p>
 					</div>
 				</div>
 
-				<div className="w-full lg:w-1/2 flex justify-end">
+				<div className="w-full lg:w-1/2">
 					<Image
 						src="online_learning.svg"
 						alt="Learn with Experts"
-						width={300}
-						height={300}
-						className="md:w-full"
+						width={250}
+						height={250}
+						className="md:w-4/5 scale-x-[-1] float-right"
 					/>
 				</div>
 			</div>
