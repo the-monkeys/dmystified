@@ -1,12 +1,10 @@
 import { courseList } from "@/constants/courses";
 import CourseCard from "../cards/CourseCard";
+import Section from "../layout/Section";
 
 const Courses = () => {
 	return (
-		<section
-			className="mx-auto mb-10 sm:mb-12 max-w-7xl px-4 lg:px-8"
-			id="courses"
-		>
+		<Section id="courses" className="mb-10 sm:mb-12">
 			<div className="mb-6 w-full text-center cursor-default">
 				<h2 className="py-2 font-medium text-2xl sm:text-3xl md:text-4xl">
 					<span className="font-medium text-orange">Courses</span> we
@@ -23,7 +21,7 @@ const Courses = () => {
 					return <CourseCard key={course.id} course={course} />;
 				})}
 			</div>
-		</section>
+		</Section>
 	);
 };
 

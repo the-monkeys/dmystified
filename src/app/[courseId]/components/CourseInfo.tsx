@@ -1,7 +1,8 @@
+"use client";
+
 import Icon from "@/components/icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { courseList } from "@/constants/courses";
 import Image from "next/image";
 
@@ -76,11 +77,14 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
 			</div>
 
 			<div className="space-x-2">
-				<Button variant="secondary" className="px-6 mt-4">
+				<Button variant="secondary" className="px-6 mt-4 rounded-full">
 					Notes
 				</Button>
 
-				<Button className="px-6 mt-4" disabled={!course.isLive}>
+				<Button
+					className="px-6 mt-4 rounded-full"
+					disabled={!course.isLive}
+				>
 					Enroll Now
 				</Button>
 			</div>

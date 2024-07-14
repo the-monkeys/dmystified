@@ -3,11 +3,12 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import Section from "../layout/Section";
 
 const ContactUs = () => {
 	return (
-		<section
-			className="mx-auto max-w-7xl px-4 lg:px-8 flex flex-col md:flex-row gap-4 sm:gap-6"
+		<Section
+			className="flex flex-col md:flex-row gap-4 sm:gap-6"
 			id="contactUs"
 		>
 			<div className="text-center sm:text-left md:w-1/2 flex flex-col">
@@ -80,12 +81,12 @@ const ContactUs = () => {
 				<Button
 					type="button"
 					variant="secondary"
-					className="col-span-2 rounded-lg"
+					className="col-span-2"
 				>
 					Send Message
 				</Button>
 			</form>
-		</section>
+		</Section>
 	);
 };
 

@@ -4,12 +4,17 @@ export type IconName =
 	| "RiMenu5"
 	| "RiClose"
 	| "RiWhatsapp"
+	| "RiTwitterX"
 	| "RiArrowRight"
 	| "RiArrowRightS"
 	| "RiArrowDownS"
+	| "RiAdd"
+	| "RiDeleteBin2"
+	| "RiEdit"
+	| "RiLoader5"
 	| "RiMore"
 	| "RiCheck"
-	| "RiWallet"
+	| "RiWallet3"
 	| "RiLive";
 
 export type IconProps = {

@@ -5,12 +5,13 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "../ui/accordion";
+import Section from "../layout/Section";
 
 const FAQ = () => {
 	return (
-		<section
-			className="mx-auto mb-10 sm:mb-12 max-w-7xl px-4 lg:px-8"
+		<Section
 			id="faq"
+			className="px-2 mb-10 sm:mb-12 sm:px-4 py-6 sm:py-8 bg-gray-50 rounded-lg"
 		>
 			<div className="mb-6 w-full text-center cursor-default">
 				<h2 className="py-2 font-medium text-2xl sm:text-3xl md:text-4xl">
@@ -45,7 +46,7 @@ const FAQ = () => {
 					</AccordionItem>
 				))}
 			</Accordion>
-		</section>
+		</Section>
 	);
 };
 

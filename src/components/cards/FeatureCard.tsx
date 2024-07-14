@@ -13,8 +13,8 @@ const FeatureCard = ({
 	description: string;
 }) => {
 	return (
-		<div className="relative group h-52 md:h-60 col-span-2 md:col-span-1 p-4 sm:p-6 flex flex-col justify-between rounded-3xl shadow-lg hover:shadow-none shadow-gray-200 overflow-hidden transition">
-			<div className="absolute top-0 right-0 size-40 opacity-80 group-hover:opacity-100">
+		<div className="relative group h-52 md:h-60 col-span-2 md:col-span-1 p-4 sm:p-6 flex flex-col justify-between rounded-3xl shadow-md sm:shadow-lg hover:shadow-none shadow-gray-200 overflow-hidden transition">
+			<div className="absolute top-0 right-0 size-40 opacity-25 group-hover:opacity-100">
 				<Image
 					src={`./${imageName}.svg`}
 					alt="Dmystified"
@@ -24,7 +24,7 @@ const FeatureCard = ({
 				/>
 			</div>
 
-			<Badge variant="outline" className="w-fit px-3 py-1 text-sm">
+			<Badge variant="outline" className="w-fit text-sm">
 				{tag}
 			</Badge>
 
@@ -33,7 +33,7 @@ const FeatureCard = ({
 					{title}
 				</h2>
 
-				<p className="text-sm sm:text-base text-gray-500">
+				<p className="text-sm sm:text-base text-gray-800">
 					{description}
 				</p>
 			</div>

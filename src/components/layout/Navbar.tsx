@@ -33,19 +33,25 @@ const Navbar = () => {
 				<Button
 					size="icon"
 					variant="outline"
-					className="mx-auto md:hidden rounded-full bg-white/50 backdrop-blur-lg"
+					className="mx-auto md:hidden rounded-full bg-white/50 backdrop-blur-md"
 					onClick={toggleMenu}
 				>
 					{!isMenuOpen ? (
-						<Icon name="RiMenu5" />
+						<Icon
+							name="RiArrowDownS"
+							className="rotate-0 transition"
+						/>
 					) : (
-						<Icon name="RiClose" />
+						<Icon
+							name="RiArrowDownS"
+							className="rotate-180 transition"
+						/>
 					)}
 				</Button>
 
 				{isMenuOpen && (
-					<div className="w-full absolute top-full left-0 z-50 p-2 md:hidden">
-						<div className="w-52 mx-auto border-1 border-gray-300 rounded-lg bg-white/50 backdrop-blur-md">
+					<div className="w-full absolute top-full left-0 z-50 md:hidden transition">
+						<div className="w-52 mx-auto border-1 border-gray-300 rounded-lg bg-white/50 backdrop-blur-lg">
 							<ul className="p-4 flex flex-col space-y-4">
 								{navItems.map((item) => (
 									<li

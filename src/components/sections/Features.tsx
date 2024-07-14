@@ -1,12 +1,10 @@
 import FeatureCard from "../cards/FeatureCard";
 import { featureItems } from "@/constants/features";
+import Section from "../layout/Section";
 
 const Features = () => {
 	return (
-		<section
-			className="mx-auto mb-10 sm:mb-12 max-w-7xl px-4 lg:px-8"
-			id="features"
-		>
+		<Section id="features" className="mb-10 sm:mb-12">
 			<div className="mb-6 w-full text-center cursor-default">
 				<h2 className="py-2 font-medium text-2xl sm:text-3xl md:text-4xl">
 					Why Choose <span className="text-orange">Dmystified</span>
@@ -19,7 +17,7 @@ const Features = () => {
 				</p>
 			</div>
 
-			<div className="mt-4 grid grid-cols-2 gap-4">
+			<div className="mt-4 grid grid-cols-2 gap-2 sm:gap-4">
 				{featureItems.map((feature) => {
 					return (
 						<FeatureCard
@@ -32,7 +30,7 @@ const Features = () => {
 					);
 				})}
 			</div>
-		</section>
+		</Section>
 	);
 };
 

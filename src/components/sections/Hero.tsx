@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { LogoFull } from "../logo";
+import Section from "../layout/Section";
 
 const Hero = () => {
 	return (
-		<section className="mx-auto max-w-7xl mb-10 sm:mb-12 py-2 sm:py-4 px-4 lg:px-8">
+		<Section className="mb-10 sm:mb-12">
 			<div className="flex flex-col gap-2 items-center">
 				<div className="self-start sm:self-center my-2 h-8 sm:h-10">
 					<Image
-						src="dmystified_logo_full.svg"
+						src={LogoFull}
 						alt="Dmsytified"
 						width={150}
 						height={150}
@@ -36,7 +38,7 @@ const Hero = () => {
 					skills you need to succeed.
 				</p>
 			</div>
-		</section>
+		</Section>
 	);
 };
 

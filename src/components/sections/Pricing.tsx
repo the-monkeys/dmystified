@@ -1,12 +1,10 @@
 import { pricingItems } from "@/constants/pricing";
 import PricingCard from "../cards/PricingCard";
+import Section from "../layout/Section";
 
 const Pricing = () => {
 	return (
-		<section
-			className="mx-auto mb-10 sm:mb-12 max-w-7xl px-4 lg:px-8"
-			id="pricing"
-		>
+		<Section id="pricing" className="mb-10 sm:mb-12">
 			<div className="mb-6 w-full text-center cursor-default">
 				<h2 className="py-2 font-medium text-2xl sm:text-3xl md:text-4xl">
 					<span className="text-orange">Pricing</span> Options
@@ -22,7 +20,7 @@ const Pricing = () => {
 					return <PricingCard key={pricing.id} pricing={pricing} />;
 				})}
 			</div>
-		</section>
+		</Section>
 	);
 };
 

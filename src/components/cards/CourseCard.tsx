@@ -19,6 +19,7 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
 							size={18}
 						/>
 					)}
+
 					{course.isLive ? "Live" : "Upcoming"}
 				</Badge>
 			</div>
@@ -53,7 +54,11 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
 				</p>
 			</div>
 
-			<Button className="group w-full mt-6" variant="outline" asChild>
+			<Button
+				className="group w-full mt-6 rounded-full"
+				variant="outline"
+				asChild
+			>
 				<Link href={`/${course.id}`}>
 					Course Details{" "}
 					<div className="mx-2 group-hover:ml-3 group-hover:mr-1 transition-all">

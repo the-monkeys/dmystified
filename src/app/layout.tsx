@@ -5,6 +5,7 @@ import "./globals.css";
 import FloatingWhatsAppButton from "@/components/WhatsappSupport";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
+				<Toaster />
 				<Navbar />
 				<FloatingWhatsAppButton />
 				{children}

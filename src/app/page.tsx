@@ -7,17 +7,17 @@ import Courses from "@/components/sections/Courses";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/Faq";
 import ContactUs from "@/components/sections/ContactUs";
+import Container from "@/components/layout/Container";
 
 export default function HomePage() {
 	return (
-		<div className="w-full bg-white">
+		<Container className="bg-white">
 			<Hero />
 			<Features />
 			<Courses />
 			<Pricing />
 			<FAQ />
 			<ContactUs />
-			<Separator />
-		</div>
+		</Container>
 	);
 }

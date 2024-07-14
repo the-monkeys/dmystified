@@ -72,12 +72,12 @@ const PricingCard = ({
 				<Button
 					type="button"
 					className={twMerge(
-						"w-full rounded-md",
+						"w-full",
 						isRecommended &&
 							"text-white bg-orange hover:bg-orange/80"
 					)}
 				>
-					<Icon name="RiWallet" className="mr-1" />
+					<Icon name="RiWallet3" className="mr-1" />
 					Choose Plan
 				</Button>
 			</div>

@@ -12,11 +12,15 @@ export const navItems = [
 		href: "/#pricing",
 	},
 	{
-		name: "FAQ",
-		href: "/#faq",
+		name: "Dashboard",
+		href: "/dashboard/admin",
 	},
-	{
-		name: "Contact",
-		href: "/#contactUs",
-	},
+	// {
+	// 	name: "FAQ",
+	// 	href: "/#faq",
+	// },
+	// {
+	// 	name: "Contact",
+	// 	href: "/#contactUs",
+	// },
 ];
