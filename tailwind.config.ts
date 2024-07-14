@@ -25,6 +25,14 @@ const config = {
 				orange: "#FF462E",
 			},
 			keyframes: {
+				"loader-rotate": {
+					"0%": {
+						transform: "rotate(0deg)",
+					},
+					"100%": {
+						transform: "rotate(360deg)",
+					},
+				},
 				"accordion-down": {
 					from: { height: "0" },
 					to: { height: "var(--radix-accordion-content-height)" },
@@ -35,6 +43,7 @@ const config = {
 				},
 			},
 			animation: {
+				"loader-rotate": "loader-rotate 0.6s linear infinite",
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
