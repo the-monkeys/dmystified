@@ -19,7 +19,7 @@ export async function generateMetadata(
 	const course = courseList[params.courseId];
 
 	return {
-		title: `Dmystified - ${course.title}`,
+		title: `${course.title} | Dmystified`,
 		description: course.description,
 	};
 }
@@ -36,8 +36,8 @@ export default async function CoursePage({
 	const MdxComponent = await getMdxComponent(course.id);
 
 	return (
-		<div className="mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen">
-			<Breadcrumb className="mx-2 mb-4">
+		<div className="mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen space-y-6">
+			<Breadcrumb>
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink href="/#courses">
@@ -46,9 +46,7 @@ export default async function CoursePage({
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
-						<BreadcrumbPage className="cursor-default">
-							{course.title}
-						</BreadcrumbPage>
+						<BreadcrumbPage>{course.title}</BreadcrumbPage>
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>

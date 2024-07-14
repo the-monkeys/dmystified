@@ -8,6 +8,9 @@ import Image from "next/image";
 
 const CourseInfo = ({ courseName }: { courseName: string }) => {
 	const course = courseList[courseName];
+	const handleEnrollNowClick = () => {
+		window.open("https://api.whatsapp.com/send?phone=9641118267", "_blank");
+	};
 
 	return (
 		<div className="relative min-h-40 sm:min-h-52 p-4 shadow-lg shadow-gray-200 rounded-2xl overflow-hidden">
@@ -84,6 +87,7 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
 				<Button
 					className="px-6 mt-4 rounded-full"
 					disabled={!course.isLive}
+					onClick={handleEnrollNowClick}
 				>
 					Enroll Now
 				</Button>
