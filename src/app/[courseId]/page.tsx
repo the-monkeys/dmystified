@@ -1,70 +1,69 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata, ResolvingMetadata } from 'next';
 
-import CourseInfo from "./components/CourseInfo";
-import { courseList } from "@/constants/courses";
-import getMdxComponent from "@/utils/getMdxComponent";
 import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import { courseList } from '@/constants/courses';
+import getMdxComponent from '@/utils/getMdxComponent';
 
-export async function generateMetadata(
-	{ params }: { params: { courseId: string } },
-	parent: ResolvingMetadata
-): Promise<Metadata> {
-	const course = courseList[params.courseId];
+import CourseInfo from './components/CourseInfo';
 
-	return {
-		title: `${course.title} | Dmystified`,
-		description: course.description,
-	};
+export async function generateMetadata({
+  params,
+}: {
+  params: { courseId: string };
+}): Promise<Metadata> {
+  const course = courseList[params.courseId];
+
+  return {
+    title: `${course.title} | Dmystified`,
+    description: course.description,
+  };
 }
 
 export default async function CoursePage({
-	params,
+  params,
 }: {
-	params: {
-		courseId: string;
-	};
+  params: {
+    courseId: string;
+  };
 }) {
-	const course = courseList[params.courseId];
+  const course = courseList[params.courseId];
 
-	const MdxComponent = await getMdxComponent(course.id);
+  const MdxComponent = await getMdxComponent(course.id);
 
-	return (
-		<div className="mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen space-y-6">
-			<Breadcrumb>
-				<BreadcrumbList>
-					<BreadcrumbItem>
-						<BreadcrumbLink href="/#courses">
-							All Courses
-						</BreadcrumbLink>
-					</BreadcrumbItem>
-					<BreadcrumbSeparator />
-					<BreadcrumbItem>
-						<BreadcrumbPage>{course.title}</BreadcrumbPage>
-					</BreadcrumbItem>
-				</BreadcrumbList>
-			</Breadcrumb>
+  return (
+    <div className='mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen space-y-6'>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage className='cursor-default'>
+              {course.title}
+            </BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-			<CourseInfo courseName={course.id} />
+      <CourseInfo courseName={course.id} />
 
-			{MdxComponent && (
-				<div className="mt-10 px-4 flex flex-col gap-4">
-					<h4 className="self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200">
-						Course{" "}
-						<span className="font-semibold text-orange">
-							Curriculum
-						</span>
-					</h4>
+      {MdxComponent && (
+        <div className='mt-10 px-4 flex flex-col gap-4'>
+          <h4 className='self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200'>
+            Course <span className='font-semibold text-orange'>Curriculum</span>
+          </h4>
 
-					<MdxComponent />
-				</div>
-			)}
-		</div>
-	);
+          <MdxComponent />
+        </div>
+      )}
+    </div>
+  );
 }

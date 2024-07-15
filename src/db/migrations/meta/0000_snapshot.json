@@ -62,9 +62,7 @@
         "course_name_unique": {
           "name": "course_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       }
     }
