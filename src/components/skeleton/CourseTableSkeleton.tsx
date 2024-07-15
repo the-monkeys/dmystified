@@ -35,8 +35,9 @@ const CourseTableSkeleton = () => {
           </TableCell>
           <TableCell>
             <div className='flex justify-center gap-1'>
-              <Skeleton className='size-8 rounded-full' />
-              <Skeleton className='size-8 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
             </div>
           </TableCell>
         </TableRow>
@@ -54,8 +55,9 @@ const CourseTableSkeleton = () => {
           </TableCell>
           <TableCell>
             <div className='flex justify-center gap-1'>
-              <Skeleton className='size-8 rounded-full' />
-              <Skeleton className='size-8 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
             </div>
           </TableCell>
         </TableRow>
@@ -73,8 +75,9 @@ const CourseTableSkeleton = () => {
           </TableCell>
           <TableCell>
             <div className='flex justify-center gap-1'>
-              <Skeleton className='size-8 rounded-full' />
-              <Skeleton className='size-8 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
+              <Skeleton className='size-10 rounded-full' />
             </div>
           </TableCell>
         </TableRow>

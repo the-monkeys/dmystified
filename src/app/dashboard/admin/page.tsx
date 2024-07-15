@@ -66,7 +66,9 @@ const AdminDashboard = () => {
       </Section>
 
       <Section className='my-2'>
-        <h3 className='font-semibold text-xl sm:text-2xl'>Courses</h3>
+        <h3 className='px-2 sm:px-4 font-semibold text-xl sm:text-2xl'>
+          Courses
+        </h3>
 
         <Dialog>
           <DialogTrigger asChild>
@@ -75,16 +77,14 @@ const AdminDashboard = () => {
                 size='sm'
                 className='text-white bg-orange hover:bg-orange/80'
               >
-                {' '}
-                Add
-                <Icon name='RiAdd' />
+                New Course <Icon name='RiAdd' />
               </Button>
             </div>
           </DialogTrigger>
 
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Course Details</DialogTitle>
+              <DialogTitle>Add New Course</DialogTitle>
             </DialogHeader>
 
             <AddCourseForm />

@@ -6,6 +6,7 @@ export type IconName =
   | 'RiWhatsapp'
   | 'RiTwitterX'
   | 'RiArrowRight'
+  | 'RiArrowRightUp'
   | 'RiArrowRightS'
   | 'RiArrowDownS'
   | 'RiAdd'

@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import Link from 'next/link';
+
 import Icon from '@/components/icon';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -11,6 +13,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+
+import DeleteCourseDialog from './DeleteCourseDialog';
+import EditCourseDialog from './EditCourseDialog';
 
 type Course = {
   id: string;
@@ -62,12 +67,29 @@ const CoursesTable: FC<CoursesTableProps> = ({ courses }) => {
 
               <TableCell>
                 <div className='flex justify-center'>
-                  <Button variant='ghost' size='icon' className='rounded-full'>
-                    <Icon name='RiEdit' size={18} />
-                  </Button>
+                  <EditCourseDialog
+                    id={course.id}
+                    cname={course.cname}
+                    title={course.title}
+                  />
 
-                  <Button variant='ghost' size='icon' className='rounded-full'>
-                    <Icon name='RiDeleteBin6' size={18} />
+                  <DeleteCourseDialog
+                    id={course.id}
+                    cname={course.cname}
+                    title={course.title}
+                  />
+
+                  <Button
+                    variant='ghost'
+                    size='icon'
+                    className='rounded-full'
+                    asChild
+                  >
+                    <Link
+                      href={`/dashboard/admin/${course.cname}?id=${course.id}`}
+                    >
+                      <Icon name='RiArrowRightUp' size={18} />
+                    </Link>
                   </Button>
                 </div>
               </TableCell>
