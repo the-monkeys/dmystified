@@ -16,8 +16,7 @@ export type IconName =
   | 'RiLoader5'
   | 'RiMore'
   | 'RiCheck'
-  | 'RiWallet3'
-  | 'RiLive';
+  | 'RiWallet3';
 
 export type IconProps = {
   name: IconName;

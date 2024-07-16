@@ -24,10 +24,7 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
         </div>
       )}
 
-      <Badge variant='secondary'>
-        {course.isLive && (
-          <Icon name='RiLive' className='text-red-600 mr-1' size={18} />
-        )}
+      <Badge variant={course.isLive ? 'live' : 'outline'}>
         {course.isLive ? 'Live' : 'Upcoming'}
       </Badge>
 
@@ -57,19 +54,6 @@ const CourseInfo = ({ courseName }: { courseName: string }) => {
 
         <p className='text-sm'>
           Language: <span className='font-medium'>{course.medium}</span>
-        </p>
-
-        <p className='text-sm'>
-          Instructor(s):{' '}
-          {course.instructors.length ? (
-            course.instructors.map((instructor) => (
-              <span key={instructor.id} className='font-medium'>
-                {instructor.name}
-              </span>
-            ))
-          ) : (
-            <span className='font-medium'>Not assigned yet</span>
-          )}
         </p>
       </div>
 

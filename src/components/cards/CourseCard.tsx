@@ -13,16 +13,12 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
   return (
     <div className='col-span-2 sm:col-span-1 py-4 px-6 bg-gray-50 border-1 border-gray-100 rounded-3xl overflow-hidden'>
       <div className='flex justify-end gap-1'>
-        <Badge variant='secondary'>
-          {course.isLive && (
-            <Icon name='RiLive' className='text-red-600 mr-1' size={18} />
-          )}
-
+        <Badge variant={course.isLive ? 'live' : 'outline'}>
           {course.isLive ? 'Live' : 'Upcoming'}
         </Badge>
       </div>
 
-      <div className='my-2 w-fit h-12'>
+      <div className='my-2 w-fit h-10'>
         <Image
           src={course.imagePath || ''}
           alt={course.title}

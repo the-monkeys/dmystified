@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className='sticky top-0 left-0 w-full z-50'>
       <div className='mx-auto max-w-7xl flex items-center justify-between p-4 lg:px-8'>
         <div className='hidden md:block mx-auto border-1 border-gray-300 rounded-full bg-white/50 backdrop-blur-md overflow-hidden'>
-          <ul className='inline-flex px-6 space-x-8'>
+          <ul className='p-1 inline-flex px-6 space-x-8'>
             {navItems.map((item) => (
               <Link href={item.href} key={item.id}>
                 <li

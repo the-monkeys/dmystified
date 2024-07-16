@@ -6,12 +6,6 @@ export const CourseIDs = {
   TYPESCRIPT: 'typescript_05',
 } as const;
 
-export type Instructor = {
-  id: number;
-  name: string;
-  github?: string;
-};
-
 export type CourseItem = {
   id: string;
   title: string;
@@ -22,7 +16,6 @@ export type CourseItem = {
   sectionCount?: number;
   durationInHours?: string;
   medium: string;
-  instructors: Instructor[];
 };
 
 export const courseList: Record<string, CourseItem> = {
@@ -37,13 +30,6 @@ export const courseList: Record<string, CourseItem> = {
     sectionCount: 5,
     durationInHours: '36',
     medium: 'English',
-    instructors: [
-      {
-        id: 1,
-        name: 'Dave Augustus',
-        github: 'https://github.com/daveaugustus',
-      },
-    ],
   },
   [CourseIDs.REACT]: {
     id: CourseIDs.REACT,
@@ -55,7 +41,6 @@ export const courseList: Record<string, CourseItem> = {
     onHold: false,
     sectionCount: 0,
     medium: 'English',
-    instructors: [],
   },
   [CourseIDs.NEXTJS]: {
     id: CourseIDs.NEXTJS,
@@ -67,7 +52,6 @@ export const courseList: Record<string, CourseItem> = {
     onHold: false,
     sectionCount: 0,
     medium: 'English',
-    instructors: [],
   },
   [CourseIDs.JAVASCRIPT]: {
     id: CourseIDs.JAVASCRIPT,
@@ -79,7 +63,6 @@ export const courseList: Record<string, CourseItem> = {
     onHold: false,
     sectionCount: 0,
     medium: 'English',
-    instructors: [],
   },
   [CourseIDs.TYPESCRIPT]: {
     id: CourseIDs.TYPESCRIPT,
@@ -91,6 +74,5 @@ export const courseList: Record<string, CourseItem> = {
     onHold: false,
     sectionCount: 0,
     medium: 'English',
-    instructors: [],
   },
 };

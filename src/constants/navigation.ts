@@ -11,6 +11,11 @@ export const navItems = [
   },
   {
     id: 3,
+    name: 'Contact',
+    href: '/#contact',
+  },
+  {
+    id: 4,
     name: 'Dashboard',
     href: '/dashboard',
   },

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import WhatsAppButton from '../WhatsappSupport';
 import Section from '../layout/Section';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -8,8 +9,10 @@ import { Textarea } from '../ui/textarea';
 
 const ContactUs = () => {
   return (
-    <Section className='flex flex-col md:flex-row gap-4' id='contactUs'>
+    <Section className='flex flex-col md:flex-row gap-4' id='contact'>
       <div className='text-center sm:text-left md:w-1/2 flex flex-col'>
+        <WhatsAppButton />
+
         <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
           <span className='font-medium text-orange'>Connect </span> with Us
         </h4>
@@ -92,7 +95,7 @@ const ContactUs = () => {
           />
         </div>
 
-        <Button type='submit' variant='secondary' className='col-span-2'>
+        <Button type='submit' className='col-span-2'>
           Send Message
         </Button>
       </form>

@@ -67,12 +67,12 @@ const CourseTable: FC<CourseTableProps> = ({ courses }) => {
               </TableCell>
 
               <TableCell className='text-center'>
-                <Badge variant={course.isLive ? 'default' : 'outline'}>
+                <Badge variant={course.isLive ? 'live' : 'outline'}>
                   {course.isLive ? 'Live' : 'Upcoming'}
                 </Badge>
               </TableCell>
 
-              <TableCell className='text-center'>
+              <TableCell className='text-sm text-center'>
                 <p className='truncate'>{formatDate(course.updatedAt)}</p>
               </TableCell>
 
