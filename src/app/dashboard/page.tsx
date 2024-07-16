@@ -1,11 +1,8 @@
-'use client';
-
+import { Metadata } from 'next';
 import Image from 'next/image';
 
-import Icon from '@/components/icon';
 import Container from '@/components/layout/Container';
 import Section from '@/components/layout/Section';
-import CourseTableSkeleton from '@/components/skeleton/CourseTableSkeleton';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,27 +11,20 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import useSWR from 'swr';
 
-import DashboardImage from '../../../../public/dashboard.svg';
-import { getCoursesAction } from './actions';
-import AddCourseForm from './components/AddCourseForm';
-import CoursesTable from './components/CoursesTable';
+import DashboardImage from '../../../public/dashboard.svg';
+import Courses from './components/Courses';
+import AddCourseDialog from './components/dialogs/AddCourseDialog';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: `Dashboard | Dmystified`,
+    description:
+      'Manage and monitor administrative tasks efficiently with the Dmystified admin dashboard. Track analytics, manage users, and oversee content seamlessly.',
+  };
+}
 
 const AdminDashboard = () => {
-  const { data: courses, isLoading } = useSWR(
-    'getAllCourses',
-    getCoursesAction
-  );
-
   return (
     <Container className='min-h-screen'>
       <Breadcrumb>
@@ -70,32 +60,9 @@ const AdminDashboard = () => {
           Courses
         </h3>
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <div className='my-2 flex justify-end'>
-              <Button
-                size='sm'
-                className='text-white bg-orange hover:bg-orange/80'
-              >
-                New Course <Icon name='RiAdd' />
-              </Button>
-            </div>
-          </DialogTrigger>
+        <AddCourseDialog />
 
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Add New Course</DialogTitle>
-            </DialogHeader>
-
-            <AddCourseForm />
-          </DialogContent>
-        </Dialog>
-
-        {isLoading ? (
-          <CourseTableSkeleton />
-        ) : (
-          <CoursesTable courses={courses} />
-        )}
+        <Courses />
       </Section>
     </Container>
   );

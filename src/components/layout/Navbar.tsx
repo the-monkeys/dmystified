@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className='hidden md:block mx-auto border-1 border-gray-300 rounded-full bg-white/50 backdrop-blur-md overflow-hidden'>
           <ul className='inline-flex px-6 space-x-8'>
             {navItems.map((item) => (
-              <Link href={item.href}>
+              <Link href={item.href} key={item.id}>
                 <li
                   key={item.name}
                   className='py-2 text-sm font-medium text-black hover:text-orange'
@@ -56,7 +56,9 @@ const Navbar = () => {
                     key={item.name}
                     className='text-sm font-medium text-black hover:text-orange text-center'
                   >
-                    <Link href={item.href}>{item.name}</Link>
+                    <Link href={item.href} key={item.id}>
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

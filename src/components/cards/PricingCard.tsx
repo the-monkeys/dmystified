@@ -21,8 +21,8 @@ const PricingCard = ({
   return (
     <div
       className={twMerge(
-        'group w-80 flex flex-col border-1 border-gray-200 rounded-lg cursor-default overflow-hidden',
-        isRecommended && 'border-orange'
+        'group w-80 flex flex-col border-1 border-gray-200 hover:border-gray-900 rounded-lg cursor-default overflow-hidden',
+        isRecommended && 'border-orange/25 hover:border-orange'
       )}
     >
       <div className='p-4 space-y-4 cursor-default'>

@@ -7,9 +7,9 @@ const Courses = () => {
   return (
     <Section id='courses' className='mb-10 sm:mb-12'>
       <div className='mb-6 w-full text-center cursor-default'>
-        <h2 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
+        <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
           <span className='font-medium text-orange'>Courses</span> we offer
-        </h2>
+        </h4>
 
         <p className='max-w-xl leading-relaxed text-gray-800 text-sm md:text-base mx-auto'>
           Tailor Your Learning with Our Vast Course Selection

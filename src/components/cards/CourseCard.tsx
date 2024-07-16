@@ -32,7 +32,7 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
         />
       </div>
 
-      <h1 className='py-1 text-lg font-medium'>{course.title}</h1>
+      <h2 className='py-1 text-lg font-medium'>{course.title}</h2>
 
       <div className='space-y-1'>
         <p className='text-sm'>

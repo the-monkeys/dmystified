@@ -10,9 +10,9 @@ const ContactUs = () => {
   return (
     <Section className='flex flex-col md:flex-row gap-4' id='contactUs'>
       <div className='text-center sm:text-left md:w-1/2 flex flex-col'>
-        <h2 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
+        <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
           <span className='font-medium text-orange'>Connect </span> with Us
-        </h2>
+        </h4>
 
         <p className='leading-relaxed text-gray-800 text-sm md:text-base'>
           We Value Your Input. Reach Out to Us with Any Comments, Suggestions,

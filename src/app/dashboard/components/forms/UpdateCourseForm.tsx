@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { Loader } from '@/components/loader';
+import { UpdateCourseFormSkeleton } from '@/components/skeleton/formSkeleton';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -11,61 +12,81 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
-import { addCourseSchema } from '@/lib/schema/course';
+import useCourseInfo from '@/hooks/useCourseInfo';
+import { updateCourseSchema } from '@/lib/schema/course';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { addCourseAction } from '../actions';
+import { updateCourseAction } from '../../actions';
 
-const AddCourseForm = () => {
+const UpdateCourseForm = ({
+  id,
+  cname,
+  setOpen,
+}: {
+  id: string;
+  cname: string;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { course, isLoading } = useCourseInfo(cname);
 
-  const form = useForm<z.infer<typeof addCourseSchema>>({
-    resolver: zodResolver(addCourseSchema),
+  const form = useForm<z.infer<typeof updateCourseSchema>>({
+    resolver: zodResolver(updateCourseSchema),
     defaultValues: {
       cname: '',
       title: '',
       description: '',
+      isLive: false,
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof addCourseSchema>) => {
+  useEffect(() => {
+    if (course) {
+      form.reset({
+        cname: course[0].cname || '',
+        title: course[0].title || '',
+        description: course[0].description || '',
+        isLive: course[0].isLive || false,
+      });
+    }
+  }, [course, form]);
+
+  const onSubmit = async (values: z.infer<typeof updateCourseSchema>) => {
     setLoading(true);
 
     try {
-      const response = await addCourseAction(values);
+      const response = await updateCourseAction({ id, ...values });
 
       if (response.status) {
         toast({
           title: 'Success',
           description: response.message,
         });
-        form.reset({
-          cname: '',
-          title: '',
-          description: '',
-        });
-        setLoading(false);
+        setOpen(false);
       } else {
         toast({
           variant: 'destructive',
           title: 'Error',
           description: response.message,
         });
-        setLoading(false);
       }
     } catch (error) {
-      setLoading(false);
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'An error occurred while adding the course.',
+        description: 'An error occurred while updating the course.',
       });
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (isLoading) return <UpdateCourseFormSkeleton />;
 
   return (
     <Form {...form}>
@@ -128,10 +149,30 @@ const AddCourseForm = () => {
           )}
         />
 
-        <div className='pt-4'>
-          <Button disabled={loading} className='float-right'>
+        <FormField
+          control={form.control}
+          name='isLive'
+          render={({ field }) => (
+            <FormItem className='flex items-center gap-4 space-y-0'>
+              <FormLabel>Go Live</FormLabel>
+
+              <FormControl>
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  className='block'
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <div className='pt-4 flex justify-end'>
+          <Button type='submit' disabled={loading}>
             {loading && <Loader />}
-            Add Course
+            Save Changes
           </Button>
         </div>
       </form>
@@ -139,4 +180,4 @@ const AddCourseForm = () => {
   );
 };
 
-export default AddCourseForm;
+export default UpdateCourseForm;

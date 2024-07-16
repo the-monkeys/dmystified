@@ -1,4 +1,4 @@
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 
 import {
   Breadcrumb,
@@ -57,9 +57,9 @@ export default async function CoursePage({
 
       {MdxComponent && (
         <div className='mt-10 px-4 flex flex-col gap-4'>
-          <h4 className='self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200'>
+          <h2 className='self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200'>
             Course <span className='font-semibold text-orange'>Curriculum</span>
-          </h4>
+          </h2>
 
           <MdxComponent />
         </div>
