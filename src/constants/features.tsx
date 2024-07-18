@@ -1,34 +1,27 @@
 export const featureItems = [
   {
     id: 1,
-    title: 'Expert-Led Live Classes',
-    tag: 'Live Classes',
+    title: 'Live Classes',
     imageName: 'abstract1',
     description:
-      'Join our dynamic live classes led by industry experts and transform your learning experience.',
+      'Transform your learning with live classes led by industry experts.',
   },
   {
     id: 2,
-    title: 'Open Source Onboarding',
-    tag: 'Open Source',
+    title: 'Open Source',
     imageName: 'abstract2',
-    description:
-      'Dive into the vibrant world of open source with our comprehensive guidance and support.',
+    description: 'Start your open source journey with our expert guidance.',
   },
   {
     id: 3,
     title: 'Personalized Mentorship',
-    tag: 'Mentorship',
     imageName: 'abstract3',
-    description:
-      'Elevate your skills with personalized guidance tailored to your individual needs.',
+    description: 'Receive personalized mentorship to boost your career.',
   },
   {
     id: 4,
-    title: 'In-Depth Curriculum',
-    tag: 'Curriculum',
+    title: 'Industry Ready',
     imageName: 'abstract4',
-    description:
-      'Embark on a structured learning journey to master key concepts with a deep understanding.',
+    description: 'Master essential skills and get ready for the industry.',
   },
 ];

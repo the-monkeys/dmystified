@@ -10,9 +10,9 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-import AddCourseForm from '../forms/AddCourseForm';
+import AddCourseForm from '../forms/AddSectionForm';
 
-const AddCourseDialog = () => {
+const AddSectionDialog = ({ cname }: { cname: string }) => {
   return (
     <Dialog>
       <div className='my-2 flex justify-end'>
@@ -21,7 +21,7 @@ const AddCourseDialog = () => {
             size='sm'
             className='px-4 text-white bg-orange hover:bg-orange/90'
           >
-            Course
+            Section
             <Icon name='RiAdd' className='ml-2' />
           </Button>
         </DialogTrigger>
@@ -29,13 +29,13 @@ const AddCourseDialog = () => {
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add New Course</DialogTitle>
+          <DialogTitle>Add New Section</DialogTitle>
         </DialogHeader>
 
-        <AddCourseForm />
+        <AddCourseForm cname={cname} />
       </DialogContent>
     </Dialog>
   );
 };
 
-export default AddCourseDialog;
+export default AddSectionDialog;

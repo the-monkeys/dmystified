@@ -12,6 +12,7 @@ export const addCourseSchema = z.object({
   description: z
     .string({ required_error: 'Description is required' })
     .min(1, 'Description is required'),
+  imagePath: z.string({ invalid_type_error: 'Image Path has to be a string' }),
 });
 
 export const updateCourseSchema = z.object({
@@ -26,5 +27,7 @@ export const updateCourseSchema = z.object({
   description: z
     .string({ required_error: 'Description is required' })
     .min(1, 'Description is required'),
+  imagePath: z.string({ invalid_type_error: 'Image Path has to be a string' }),
   isLive: z.boolean().default(false),
+  onHold: z.boolean().default(false),
 });

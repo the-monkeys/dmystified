@@ -11,44 +11,31 @@ import { Button } from '../ui/button';
 
 const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
   return (
-    <div className='col-span-2 sm:col-span-1 py-4 px-6 bg-gray-50 border-1 border-gray-100 rounded-3xl overflow-hidden'>
-      <div className='flex justify-end gap-1'>
-        <Badge variant={course.isLive ? 'live' : 'outline'}>
+    <div className='col-span-2 sm:col-span-1 px-4 sm:px-6 py-2 sm:py-4 border-1 border-gray-100 bg-gray-50 rounded-3xl overflow-hidden'>
+      <div className='mb-2 sm:mb-4 flex justify-end flex-wrap gap-1'>
+        <Badge variant={course.isLive ? 'live' : 'secondary'}>
           {course.isLive ? 'Live' : 'Upcoming'}
         </Badge>
       </div>
 
-      <div className='my-2 w-fit h-10'>
+      <div className='w-fit h-8 sm:h-12'>
         <Image
           src={course.imagePath || ''}
           alt={course.title}
           width={100}
           height={100}
-          className='w-full h-full'
+          className='h-full w-full'
         />
       </div>
 
-      <h2 className='py-1 text-lg font-medium'>{course.title}</h2>
+      <h2 className='py-2 text-xl sm:text-2xl font-medium'>{course.title}</h2>
 
-      <div className='space-y-1'>
-        <p className='text-sm'>
-          Duration:{' '}
-          <span className='font-medium'>
-            {course.durationInHours ? `${course.durationInHours} Hours` : 'NA'}
-          </span>
-        </p>
-
-        <p className='text-sm'>
-          Medium:{' '}
-          <span className='font-medium'>
-            {course.medium ? course.medium : 'NA'}
-          </span>
-        </p>
-      </div>
+      <p className='text-sm truncate'>{course.description}</p>
 
       <Button
-        className='group w-full mt-6 rounded-full'
+        className='w-full mt-6 group rounded-full'
         variant='outline'
+        size='sm'
         asChild
       >
         <Link href={`/${course.id}`}>

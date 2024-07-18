@@ -13,31 +13,29 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
-import { addCourseSchema } from '@/lib/schema/course';
+import { addSectionSchema } from '@/lib/schema/section';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { addCourseAction } from '../../actions';
+import { addSectionAction } from '../../actions';
 
-const AddCourseForm = () => {
+const AddCourseForm = ({ cname }: { cname: string }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const form = useForm<z.infer<typeof addCourseSchema>>({
-    resolver: zodResolver(addCourseSchema),
+  const form = useForm<z.infer<typeof addSectionSchema>>({
+    resolver: zodResolver(addSectionSchema),
     defaultValues: {
-      cname: '',
       title: '',
       description: '',
-      imagePath: '',
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof addCourseSchema>) => {
+  const onSubmit = async (values: z.infer<typeof addSectionSchema>) => {
     setLoading(true);
 
     try {
-      const response = await addCourseAction(values);
+      const response = await addSectionAction({ cname, ...values });
 
       if (response.status) {
         toast({
@@ -46,10 +44,8 @@ const AddCourseForm = () => {
         });
 
         form.reset({
-          cname: '',
           title: '',
           description: '',
-          imagePath: '',
         });
       } else {
         toast({
@@ -62,7 +58,7 @@ const AddCourseForm = () => {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'An error occurred while adding the course.',
+        description: 'An error occurred while adding the section.',
       });
     } finally {
       setLoading(false);
@@ -77,32 +73,6 @@ const AddCourseForm = () => {
       >
         <FormField
           control={form.control}
-          name='cname'
-          render={({ field }) => (
-            <FormItem className='col-span-2'>
-              <FormLabel>Name</FormLabel>
-
-              <ul className='px-2 pb-2 list-decimal list-inside'>
-                <li className='text-sm text-gray-600'>
-                  Should be in format name_name_YY (e.g. golang_24)
-                </li>
-
-                <li className='text-sm text-gray-600'>
-                  Contain only lowercase letters
-                </li>
-              </ul>
-
-              <FormControl>
-                <Input placeholder='Enter course name' {...field} />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
           name='title'
           render={({ field }) => (
             <FormItem className='col-span-2'>
@@ -110,22 +80,6 @@ const AddCourseForm = () => {
 
               <FormControl>
                 <Input placeholder='Enter course title' {...field} />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name='imagePath'
-          render={({ field }) => (
-            <FormItem className='col-span-2'>
-              <FormLabel>Image Path</FormLabel>
-
-              <FormControl>
-                <Input placeholder='Enter image path' {...field} />
               </FormControl>
 
               <FormMessage />
@@ -149,10 +103,10 @@ const AddCourseForm = () => {
           )}
         />
 
-        <div className='pt-4 flex justify-end col-span-2'>
+        <div className='col-span-2 pt-4 flex justify-end'>
           <Button type='submit' disabled={loading}>
             {loading && <Loader />}
-            Add Course
+            Add Section
           </Button>
         </div>
       </form>

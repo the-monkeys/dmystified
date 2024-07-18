@@ -10,7 +10,7 @@ const Courses = () => {
 
   if (isLoading) return <CourseTableSkeleton />;
 
-  return <CourseTable courses={courses} />;
+  return <CourseTable courses={courses || []} />;
 };
 
 export default Courses;

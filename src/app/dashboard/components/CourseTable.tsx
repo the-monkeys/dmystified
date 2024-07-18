@@ -14,26 +14,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { formatDate } from '@/utils/formatDate';
+import { Course } from '@/services/course/courseTypes';
 
 import DeleteCourseDialog from './dialogs/DeleteCourseDialog';
 import UpdateCourseDialog from './dialogs/UpdateCourseDialog';
 
-type Course = {
-  id: string;
-  cname: string;
-  title: string;
-  description: string;
-  isLive: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
-type CourseTableProps = {
-  courses: Course[] | undefined;
-};
-
-const CourseTable: FC<CourseTableProps> = ({ courses }) => {
+const CourseTable: FC<{ courses: Course[] }> = ({ courses }) => {
   return (
     <Table className='mt-2 rounded-lg overflow-hidden'>
       {courses && courses.length === 0 && (
@@ -45,7 +31,7 @@ const CourseTable: FC<CourseTableProps> = ({ courses }) => {
           <TableHead>Name</TableHead>
           <TableHead>Title</TableHead>
           <TableHead className='text-center'>Status</TableHead>
-          <TableHead className='text-center'>Last Updated</TableHead>
+          <TableHead className='text-center'>On Hold</TableHead>
           <TableHead className='text-center'>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -53,9 +39,9 @@ const CourseTable: FC<CourseTableProps> = ({ courses }) => {
       <TableBody>
         {courses?.map((course, index) => {
           return (
-            <TableRow key={course.id}>
+            <TableRow key={course.id} className='hover:bg-gray-50 '>
               <TableCell className='max-w-[100px]'>
-                <p className='truncate'>{course.cname}</p>
+                <p className='font-gray-800 truncate'>{course.cname}</p>
               </TableCell>
 
               <TableCell className='min-w-[250px] max-w-[300px]'>
@@ -72,8 +58,10 @@ const CourseTable: FC<CourseTableProps> = ({ courses }) => {
                 </Badge>
               </TableCell>
 
-              <TableCell className='text-sm text-center'>
-                <p className='truncate'>{formatDate(course.updatedAt)}</p>
+              <TableCell className='text-center'>
+                <Badge variant={course.onHold ? 'default' : 'outline'}>
+                  {course.onHold ? 'True' : 'False'}
+                </Badge>
               </TableCell>
 
               <TableCell>

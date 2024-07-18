@@ -9,7 +9,10 @@ import { Textarea } from '../ui/textarea';
 
 const ContactUs = () => {
   return (
-    <Section className='flex flex-col md:flex-row gap-4' id='contact'>
+    <Section
+      className='mb-10 sm:mb-12 flex flex-col md:flex-row gap-4'
+      id='contact'
+    >
       <div className='text-center sm:text-left md:w-1/2 flex flex-col'>
         <WhatsAppButton />
 
@@ -22,7 +25,7 @@ const ContactUs = () => {
           or Questions
         </p>
 
-        <div className='self-center hidden md:block md:size-60'>
+        <div className='mt-4 self-center hidden md:block md:size-60'>
           <Image
             src='contact_us.svg'
             alt='Learn with Experts'
@@ -37,10 +40,8 @@ const ContactUs = () => {
         name='contact'
         method='POST'
         data-netlify='true'
-        className='flex-1 py-4 grid grid-cols-2 gap-4'
+        className='flex-1 grid grid-cols-2 gap-4'
       >
-        <input type='hidden' name='form-name' value='contact' />
-
         <div className='col-span-2 sm:col-span-1'>
           <Label htmlFor='firstname'>First Name</Label>
           <Input
@@ -95,7 +96,7 @@ const ContactUs = () => {
           />
         </div>
 
-        <Button type='submit' className='col-span-2'>
+        <Button disabled type='submit' className='w-full col-span-2'>
           Send Message
         </Button>
       </form>

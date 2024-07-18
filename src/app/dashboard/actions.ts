@@ -1,5 +1,6 @@
 'use server';
 
+import { getCourseByCname, getCourseById } from '@/data-access/courses';
 import { db } from '@/db';
 import { CourseTable } from '@/db/schema';
 import { eq } from 'drizzle-orm';
@@ -8,18 +9,17 @@ export const addCourseAction = async ({
   cname,
   title,
   description,
+  imagePath,
 }: {
   cname: string;
   title: string;
   description: string;
+  imagePath: string;
 }) => {
   try {
-    const existingCourse = await db
-      .select()
-      .from(CourseTable)
-      .where(eq(CourseTable.cname, cname));
+    const existingCourse = await getCourseByCname(cname);
 
-    if (existingCourse.length !== 0) {
+    if (existingCourse) {
       return {
         status: false,
         message: 'A course with the same name already exists.',
@@ -30,6 +30,7 @@ export const addCourseAction = async ({
       cname,
       title,
       description,
+      imagePath,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -48,14 +49,11 @@ export const addCourseAction = async ({
   }
 };
 
-export const deleteCourseAction = async ({ id }: { id: string }) => {
+export const deleteCourseAction = async ({ cname }: { cname: string }) => {
   try {
-    const existingCourse = await db
-      .select()
-      .from(CourseTable)
-      .where(eq(CourseTable.id, id));
+    const existingCourse = await getCourseByCname(cname);
 
-    if (existingCourse.length === 0) {
+    if (!existingCourse) {
       return {
         status: false,
         message: 'Course not found.',
@@ -64,7 +62,7 @@ export const deleteCourseAction = async ({ id }: { id: string }) => {
 
     const deletedCourse = await db
       .delete(CourseTable)
-      .where(eq(CourseTable.id, id))
+      .where(eq(CourseTable.id, existingCourse.id))
       .returning({ title: CourseTable.title });
 
     return {
@@ -86,21 +84,22 @@ export const updateCourseAction = async ({
   cname,
   title,
   description,
+  imagePath,
   isLive,
+  onHold,
 }: {
   id: string;
   cname: string;
   title: string;
   description: string;
+  imagePath: string;
   isLive: boolean;
+  onHold: boolean;
 }) => {
   try {
-    const existingCourse = await db
-      .select()
-      .from(CourseTable)
-      .where(eq(CourseTable.id, id));
+    const existingCourse = await getCourseById(id);
 
-    if (existingCourse.length === 0) {
+    if (!existingCourse) {
       return {
         status: false,
         message: `Course not found.`,
@@ -113,7 +112,9 @@ export const updateCourseAction = async ({
         cname,
         title,
         description,
+        imagePath,
         isLive,
+        onHold,
         updatedAt: new Date(),
       })
       .where(eq(CourseTable.id, id))

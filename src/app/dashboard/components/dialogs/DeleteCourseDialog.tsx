@@ -32,7 +32,7 @@ const DeleteCourseDialog = ({
     setLoading(true);
 
     try {
-      const response = await deleteCourseAction({ id });
+      const response = await deleteCourseAction({ cname });
 
       if (response.status) {
         toast({

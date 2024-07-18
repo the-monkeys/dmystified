@@ -19,14 +19,4 @@ export const navItems = [
     name: 'Dashboard',
     href: '/dashboard',
   },
-  // {
-  // id: 4,
-  // 	name: "FAQ",
-  // 	href: "/#faq",
-  // },
-  // {
-  // id: 5s,
-  // 	name: "Contact",
-  // 	href: "/#contactUs",
-  // },
 ];

@@ -1,39 +1,39 @@
 import Image from 'next/image';
 
-import { Badge } from '../ui/badge';
-
 const FeatureCard = ({
   title,
-  tag,
   imageName,
   description,
 }: {
   title: string;
-  tag: string;
   imageName: string;
   description: string;
 }) => {
   return (
-    <div className='relative group h-52 md:h-60 col-span-2 md:col-span-1 p-4 sm:p-6 flex flex-col justify-between rounded-3xl shadow-md sm:shadow-lg hover:shadow-none shadow-gray-200 overflow-hidden transition'>
-      <div className='absolute top-0 right-0 size-40 opacity-25 group-hover:opacity-100'>
+    <div className='relative col-span-2 sm:col-span-1 p-4 sm:p-6 flex flex-col items-center justify-center rounded-3xl shadow-md overflow-hidden'>
+      <div className='absolute -top-4 -right-4 w-fit h-full'>
         <Image
           src={`./${imageName}.svg`}
           alt='Dmystified'
           width={150}
           height={150}
-          className='w-full h-full'
+          className='w-full h-full opacity-10'
         />
       </div>
 
-      <Badge variant='outline' className='w-fit text-sm'>
-        {tag}
-      </Badge>
+      <Image
+        src={`./${imageName}.svg`}
+        alt='Dmystified'
+        width={150}
+        height={150}
+        className='size-28 z-10'
+      />
 
-      <div className='space-y-2 z-10 cursor-default'>
-        <h2 className='w-1/2 font-semibold text-lg sm:text-xl'>{title}</h2>
+      <h2 className='font-semibold text-lg sm:text-xl text-center'>{title}</h2>
 
-        <p className='text-sm sm:text-base text-gray-800'>{description}</p>
-      </div>
+      <p className='pt-2 text-sm sm:text-base text-gray-900 text-center'>
+        {description}
+      </p>
     </div>
   );
 };

@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AdminDashboard = () => {
   return (
-    <Container className='min-h-screen'>
+    <Container className='min-h-screen space-y-4'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -34,14 +34,14 @@ const AdminDashboard = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className='cursor-default'>
+            <BreadcrumbPage className='font-medium text-orange cursor-default'>
               Dashboard
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <Section className='my-2 flex flex-col items-center'>
+      <Section className='flex flex-col items-center'>
         <h1 className='font-medium text-2xl sm:text-3xl md:text-4xl text-center'>
           <span className='font-medium text-orange'>Admin</span> Dashboard
         </h1>

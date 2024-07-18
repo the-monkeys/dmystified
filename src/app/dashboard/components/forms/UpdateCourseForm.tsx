@@ -41,17 +41,21 @@ const UpdateCourseForm = ({
       cname: '',
       title: '',
       description: '',
+      imagePath: '',
       isLive: false,
+      onHold: false,
     },
   });
 
   useEffect(() => {
     if (course) {
       form.reset({
-        cname: course[0].cname || '',
-        title: course[0].title || '',
-        description: course[0].description || '',
-        isLive: course[0].isLive || false,
+        cname: course.cname || '',
+        title: course.title || '',
+        description: course.description || '',
+        imagePath: course.imagePath || '',
+        isLive: course.isLive || false,
+        onHold: course.onHold || false,
       });
     }
   }, [course, form]);
@@ -90,12 +94,15 @@ const UpdateCourseForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='grid grid-cols-2 gap-4'
+      >
         <FormField
           control={form.control}
           name='cname'
           render={({ field }) => (
-            <FormItem>
+            <FormItem className='col-span-2'>
               <FormLabel>Name</FormLabel>
 
               <ul className='px-2 pb-2 list-decimal list-inside'>
@@ -121,7 +128,7 @@ const UpdateCourseForm = ({
           control={form.control}
           name='title'
           render={({ field }) => (
-            <FormItem>
+            <FormItem className='col-span-2'>
               <FormLabel>Title</FormLabel>
 
               <FormControl>
@@ -135,9 +142,25 @@ const UpdateCourseForm = ({
 
         <FormField
           control={form.control}
+          name='imagePath'
+          render={({ field }) => (
+            <FormItem className='col-span-2'>
+              <FormLabel>Image Path</FormLabel>
+
+              <FormControl>
+                <Input placeholder='Enter image path' {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name='description'
           render={({ field }) => (
-            <FormItem>
+            <FormItem className='col-span-2'>
               <FormLabel>Description</FormLabel>
 
               <FormControl>
@@ -153,7 +176,7 @@ const UpdateCourseForm = ({
           control={form.control}
           name='isLive'
           render={({ field }) => (
-            <FormItem className='flex items-center gap-4 space-y-0'>
+            <FormItem className='col-span-2 sm:col-span-1'>
               <FormLabel>Go Live</FormLabel>
 
               <FormControl>
@@ -169,7 +192,27 @@ const UpdateCourseForm = ({
           )}
         />
 
-        <div className='pt-4 flex justify-end'>
+        <FormField
+          control={form.control}
+          name='onHold'
+          render={({ field }) => (
+            <FormItem className='col-span-2 sm:col-span-1'>
+              <FormLabel>On Hold</FormLabel>
+
+              <FormControl>
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  className='block'
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <div className='col-span-2 pt-4 flex justify-end'>
           <Button type='submit' disabled={loading}>
             {loading && <Loader />}
             Save Changes

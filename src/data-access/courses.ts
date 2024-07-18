@@ -2,25 +2,36 @@
 
 import { db } from '@/db';
 import { CourseTable } from '@/db/schema';
-import { eq } from 'drizzle-orm';
+import { asc, eq } from 'drizzle-orm';
 
 export async function getAllCourses() {
-  const courses = await db.select().from(CourseTable);
+  const courses = await db.query.CourseTable.findMany({
+    orderBy: [asc(CourseTable.createdAt)],
+  });
 
   return courses;
 }
 
+export async function getCourseById(id: string) {
+  const course = await db.query.CourseTable.findFirst({
+    where: eq(CourseTable.id, id),
+  });
+
+  return course;
+}
+
+export async function getCourseByCname(cname: string) {
+  const course = await db.query.CourseTable.findFirst({
+    where: eq(CourseTable.cname, cname),
+  });
+
+  return course;
+}
+
 export async function getCourseInfo(cname: string) {
-  const course = await db
-    .select({
-      id: CourseTable.id,
-      cname: CourseTable.cname,
-      title: CourseTable.title,
-      description: CourseTable.description,
-      isLive: CourseTable.isLive,
-    })
-    .from(CourseTable)
-    .where(eq(CourseTable.cname, cname));
+  const course = await db.query.CourseTable.findFirst({
+    where: eq(CourseTable.cname, cname),
+  });
 
   return course;
 }
