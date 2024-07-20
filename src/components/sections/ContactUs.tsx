@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import WhatsAppButton from '../WhatsappSupport';
 import Section from '../layout/Section';
 import { Button } from '../ui/button';
@@ -21,19 +19,9 @@ const ContactUs = () => {
         </h4>
 
         <p className='leading-relaxed text-gray-800 text-sm md:text-base'>
-          We Value Your Input. Reach Out to Us with Any Comments, Suggestions,
-          or Questions
+          We value your input. Reach out to us with any comments, suggestions,
+          or questions
         </p>
-
-        <div className='mt-4 self-center hidden md:block md:size-60'>
-          <Image
-            src='contact_us.svg'
-            alt='Learn with Experts'
-            width={200}
-            height={200}
-            className='w-full h-full scale-x-[-1]'
-          />
-        </div>
       </div>
 
       <form
@@ -96,7 +84,7 @@ const ContactUs = () => {
           />
         </div>
 
-        <Button disabled type='submit' className='w-full col-span-2'>
+        <Button type='submit' className='w-full col-span-2'>
           Send Message
         </Button>
       </form>

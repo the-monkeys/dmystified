@@ -2,7 +2,7 @@ import { getCourseInfoAction } from '@/actions/courseActions';
 import useSWR from 'swr';
 
 function useCourseInfo(cname: string) {
-  const { data, isLoading } = useSWR(`/get-course-info/${cname}`, () =>
+  const { data, isLoading } = useSWR(`/course-info/${cname}`, () =>
     getCourseInfoAction(cname)
   );
 

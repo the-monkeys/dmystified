@@ -4,8 +4,8 @@ export interface Course {
   title: string;
   description: string;
   imagePath: string;
-  isLive: boolean;
-  onHold: boolean;
+  status: 'Live' | 'Upcoming' | 'Archive';
+  duration: string | null;
   createdAt: Date;
   updatedAt: Date;
 }

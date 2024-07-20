@@ -11,6 +11,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 import { addCourseSchema } from '@/lib/schema/course';
@@ -30,6 +37,8 @@ const AddCourseForm = () => {
       title: '',
       description: '',
       imagePath: '',
+      status: 'Upcoming',
+      duration: '',
     },
   });
 
@@ -50,6 +59,8 @@ const AddCourseForm = () => {
           title: '',
           description: '',
           imagePath: '',
+          status: 'Upcoming',
+          duration: '',
         });
       } else {
         toast({
@@ -84,7 +95,7 @@ const AddCourseForm = () => {
 
               <ul className='px-2 pb-2 list-decimal list-inside'>
                 <li className='text-sm text-gray-600'>
-                  Should be in format name_name_YY (e.g. golang_24)
+                  Should be in format course_name_YY
                 </li>
 
                 <li className='text-sm text-gray-600'>
@@ -142,6 +153,47 @@ const AddCourseForm = () => {
 
               <FormControl>
                 <Textarea placeholder='Enter course description' {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name='status'
+          render={({ field }) => (
+            <FormItem className='col-span-2 sm:col-span-1'>
+              <FormLabel>Status</FormLabel>
+
+              <FormControl>
+                <Select onValueChange={field.onChange}>
+                  <SelectTrigger>
+                    <SelectValue placeholder='Select' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='Live'>Live</SelectItem>
+                    <SelectItem value='Upcoming'>Upcoming</SelectItem>
+                    <SelectItem value='Archive'>Archive</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name='duration'
+          render={({ field }) => (
+            <FormItem className='col-span-2 sm:col-span-1'>
+              <FormLabel>Duration (in hours)</FormLabel>
+
+              <FormControl>
+                <Input type='number' placeholder='Enter duration' {...field} />
               </FormControl>
 
               <FormMessage />

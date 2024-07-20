@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { Loader } from '@/components/loader';
+import { UpdateFormSkeleton } from '@/components/skeleton/formSkeleton';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -13,40 +14,53 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
-import { addSectionSchema } from '@/lib/schema/section';
+import useSectionInfo from '@/hooks/useSectionInfo';
+import { editSectionSchema } from '@/lib/schema/section';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { addSectionAction } from '../../actions';
+import { updateSectionAction } from '../../actions';
 
-const AddSectionForm = ({ cname }: { cname: string }) => {
+const UpdateSectionForm = ({
+  id,
+  setOpen,
+}: {
+  id: number;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { section, isLoading } = useSectionInfo(id);
 
-  const form = useForm<z.infer<typeof addSectionSchema>>({
-    resolver: zodResolver(addSectionSchema),
+  const form = useForm<z.infer<typeof editSectionSchema>>({
+    resolver: zodResolver(editSectionSchema),
     defaultValues: {
       title: '',
       description: '',
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof addSectionSchema>) => {
+  useEffect(() => {
+    if (section) {
+      form.reset({
+        title: section.title || '',
+        description: section.description || '',
+      });
+    }
+  }, [section, form]);
+
+  const onSubmit = async (values: z.infer<typeof editSectionSchema>) => {
     setLoading(true);
 
     try {
-      const response = await addSectionAction({ cname, ...values });
+      const response = await updateSectionAction({ id, ...values });
 
       if (response.status) {
         toast({
           title: 'Success',
           description: response.message,
         });
-
-        form.reset({
-          title: '',
-          description: '',
-        });
+        setOpen(false);
       } else {
         toast({
           variant: 'destructive',
@@ -58,12 +72,14 @@ const AddSectionForm = ({ cname }: { cname: string }) => {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'An error occurred while adding the section.',
+        description: 'An error occurred while updating the section.',
       });
     } finally {
       setLoading(false);
     }
   };
+
+  if (isLoading) return <UpdateFormSkeleton />;
 
   return (
     <Form {...form}>
@@ -106,7 +122,7 @@ const AddSectionForm = ({ cname }: { cname: string }) => {
         <div className='col-span-2 pt-4 flex justify-end'>
           <Button type='submit' disabled={loading}>
             {loading && <Loader />}
-            Add Section
+            Save Changes
           </Button>
         </div>
       </form>
@@ -114,4 +130,4 @@ const AddSectionForm = ({ cname }: { cname: string }) => {
   );
 };
 
-export default AddSectionForm;
+export default UpdateSectionForm;

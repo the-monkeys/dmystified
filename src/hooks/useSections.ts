@@ -1,8 +1,10 @@
-import { getSectionsAction } from '@/actions/sectionActions';
+import { getAllSectionsAction } from '@/actions/sectionActions';
 import useSWR from 'swr';
 
-function useCourses() {
-  const { data, isLoading } = useSWR('/get-all-sections', getSectionsAction);
+function useSections(cname: string) {
+  const { data, isLoading } = useSWR(`/all-sections/${cname}`, () =>
+    getAllSectionsAction(cname)
+  );
 
   return {
     sections: data,
@@ -10,4 +12,4 @@ function useCourses() {
   };
 }
 
-export default useCourses;
+export default useSections;

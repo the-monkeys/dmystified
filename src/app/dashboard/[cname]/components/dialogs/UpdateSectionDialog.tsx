@@ -14,16 +14,14 @@ import {
 } from '@/components/ui/dialog';
 import { formatDate } from '@/utils/formatDate';
 
-import UpdateCourseForm from '../forms/UpdateCourseForm';
+import UpdateSectionForm from '../forms/UpdateSectionForm';
 
-const UpdateCourseDialog = ({
+const UpdateSectionDialog = ({
   id,
-  cname,
   title,
   updatedAt,
 }: {
-  id: string;
-  cname: string;
+  id: number;
   title: string;
   updatedAt: Date;
 }) => {
@@ -42,19 +40,17 @@ const UpdateCourseDialog = ({
       </DialogTrigger>
 
       <DialogContent>
-        <DialogHeader className='overflow-hidden'>
-          <DialogTitle className='py-1 pr-4 truncate'>
-            Update &apos;{title}&apos;
-          </DialogTitle>
+        <DialogHeader>
+          <DialogTitle>Update &apos;{title}&apos;</DialogTitle>
           <DialogDescription>
             Last Updated: {formatDate(updatedAt)}
           </DialogDescription>
         </DialogHeader>
 
-        <UpdateCourseForm id={id} cname={cname} setOpen={setOpen} />
+        <UpdateSectionForm id={id} setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   );
 };
 
-export default UpdateCourseDialog;
+export default UpdateSectionDialog;

@@ -10,11 +10,15 @@ export const addCourseAction = async ({
   title,
   description,
   imagePath,
+  status,
+  duration,
 }: {
   cname: string;
   title: string;
   description: string;
   imagePath: string;
+  status: 'Live' | 'Upcoming' | 'Archive';
+  duration: string;
 }) => {
   try {
     const existingCourse = await getCourseByCname(cname);
@@ -31,6 +35,8 @@ export const addCourseAction = async ({
       title,
       description,
       imagePath,
+      status,
+      duration,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -85,16 +91,16 @@ export const updateCourseAction = async ({
   title,
   description,
   imagePath,
-  isLive,
-  onHold,
+  status,
+  duration,
 }: {
   id: string;
   cname: string;
   title: string;
   description: string;
   imagePath: string;
-  isLive: boolean;
-  onHold: boolean;
+  status: 'Live' | 'Upcoming' | 'Archive';
+  duration: string;
 }) => {
   try {
     const existingCourse = await getCourseById(id);
@@ -113,8 +119,8 @@ export const updateCourseAction = async ({
         title,
         description,
         imagePath,
-        isLive,
-        onHold,
+        status,
+        duration,
         updatedAt: new Date(),
       })
       .where(eq(CourseTable.id, id))

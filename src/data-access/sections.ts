@@ -1,11 +1,29 @@
+'use server';
+
 import { db } from '@/db';
 import { SectionTable } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
-export async function getAllSections(courseId: string) {
+import { getCourseByCname } from './courses';
+
+export async function getAllSections(cname: string) {
+  const existingCourse = await getCourseByCname(cname);
+
+  if (!existingCourse) {
+    return undefined;
+  }
+
   const sections = await db.query.SectionTable.findMany({
-    where: eq(SectionTable.courseId, courseId),
+    where: eq(SectionTable.courseId, existingCourse.id),
   });
 
   return sections;
+}
+
+export async function getSectionById(id: number) {
+  const section = await db.query.SectionTable.findFirst({
+    where: eq(SectionTable.id, id),
+  });
+
+  return section;
 }

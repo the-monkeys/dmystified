@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import * as SelectPrimitive from '@radix-ui/react-select';
-import { z } from 'zod';
 
 import Icon from '../icon';
 

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 
+import Container from '@/components/layout/Container';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,7 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { courseList } from '@/constants/courses';
+import { getCourseByCname } from '@/data-access/courses';
 import getMdxComponent from '@/utils/getMdxComponent';
 
 import CourseInfoCard from './components/CourseInfoCard';
@@ -18,11 +19,11 @@ export async function generateMetadata({
 }: {
   params: { courseId: string };
 }): Promise<Metadata> {
-  const course = courseList[params.courseId];
+  const course = await getCourseByCname(params.courseId);
 
   return {
-    title: `${course.title} | Dmystified`,
-    description: course.description,
+    title: `${course?.title} | Dmystified`,
+    description: course?.description,
   };
 }
 
@@ -33,12 +34,12 @@ export default async function CoursePage({
     courseId: string;
   };
 }) {
-  const course = courseList[params.courseId];
+  const course = await getCourseByCname(params.courseId);
 
-  const MdxComponent = await getMdxComponent(course.id);
+  const MdxComponent = await getMdxComponent(course?.cname);
 
   return (
-    <div className='mx-auto mb-6 sm:mb-8 max-w-7xl px-4 lg:px-8 pt-4 min-h-screen space-y-4'>
+    <Container className='min-h-screen space-y-4'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -46,24 +47,24 @@ export default async function CoursePage({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className='font-medium text-orange cursor-default'>
-              {course.title}
+            <BreadcrumbPage className='font-medium cursor-default'>
+              {course?.title}
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <CourseInfoCard courseName={course.id} />
+      <CourseInfoCard course={course} />
 
-      {MdxComponent && (
+      {course?.status === 'Live' && (
         <div className='px-4 py-2 flex flex-col gap-4'>
           <h2 className='self-center px-6 py-2 font-medium text-xl sm:text-2xl border-b-1 border-gray-200'>
             Course <span className='font-semibold text-orange'>Curriculum</span>
           </h2>
 
-          <MdxComponent />
+          {MdxComponent && <MdxComponent />}
         </div>
       )}
-    </div>
+    </Container>
   );
 }

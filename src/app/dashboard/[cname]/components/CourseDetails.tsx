@@ -1,29 +1,22 @@
-import Image from 'next/image';
+'use client';
 
 import Section from '@/components/layout/Section';
+import { CourseInfoCardSkeleton } from '@/components/skeleton/courseSkeleton';
 import { Badge } from '@/components/ui/badge';
-import { Course } from '@/services/course/courseTypes';
+import useCourseInfo from '@/hooks/useCourseInfo';
 import { formatDate } from '@/utils/formatDate';
 
-import EnrollDialog from './EnrollDialog';
+const CourseDetails = ({ cname }: { cname: string }) => {
+  const { course, isLoading } = useCourseInfo(cname);
 
-const CourseInfoCard = ({ course }: { course?: Course }) => {
+  if (isLoading) return <CourseInfoCardSkeleton />;
+
   return (
-    <Section className='min-h-40 sm:min-h-52 p-4 sm:p-6 shadow-md space-y-1 rounded-3xl overflow-hidden'>
-      <div className='flex justify-end'>
+    <Section className='space-y-1'>
+      <div className='space-x-2'>
         <Badge variant={course?.status === 'Live' ? 'live' : 'secondary'}>
           {course?.status}
         </Badge>
-      </div>
-
-      <div className='w-fit h-12 sm:h-14 md:h-16'>
-        <Image
-          src={course?.imagePath || ''}
-          alt={course?.title || ''}
-          width={100}
-          height={100}
-          className='h-full w-full'
-        />
       </div>
 
       <h1 className='font-spaceGrotesk font-semibold text-2xl sm:text-3xl md:text-4xl'>
@@ -43,7 +36,10 @@ const CourseInfoCard = ({ course }: { course?: Course }) => {
         </p>
 
         <p className='text-sm text-gray-800'>
-          Medium: <span className='font-medium'>English</span>
+          Created On:{' '}
+          <span className='font-medium'>
+            {course ? formatDate(course?.createdAt) : 'Not Available'}
+          </span>
         </p>
 
         <p className='text-sm text-gray-800'>
@@ -53,19 +49,8 @@ const CourseInfoCard = ({ course }: { course?: Course }) => {
           </span>
         </p>
       </div>
-
-      {course?.status === 'Live' ? (
-        <EnrollDialog title={course?.title} />
-      ) : (
-        <div className='pt-4'>
-          <p className='font-medium text-sm text-red-500 text-center'>
-            The course you are trying to access is either archived or not live
-            at this time.
-          </p>
-        </div>
-      )}
     </Section>
   );
 };
 
-export default CourseInfoCard;
+export default CourseDetails;

@@ -10,16 +10,15 @@ import {
 
 const FAQ = () => {
   return (
-    <Section className='px-2 mb-10 sm:mb-12 sm:px-4 py-6 sm:py-8 bg-gray-50 rounded-lg'>
-      <div className='mb-6 w-full text-center cursor-default'>
-        <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
-          <span className='text-orange'>Got Questions?</span> We&apos;ve Got
-          Answers
+    <Section className='px-2 mb-10 sm:mb-12 sm:px-4 py-6 sm:py-8 bg-gray-50 space-y-6 rounded-lg'>
+      <div className='text-center space-y-2'>
+        <h4 className='mx-auto w-fit py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
+          <span className='text-orange'>Questions?</span> We&apos;ve got answers
         </h4>
 
         <p className='max-w-xl leading-relaxed text-gray-800 text-sm md:text-base mx-auto'>
-          Explore Our FAQ Section for Quick Solutions to Common Queries and
-          Concerns
+          Explore our FAQ section for quick solutions to common queries and
+          concerns
         </p>
       </div>
 

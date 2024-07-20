@@ -3,22 +3,22 @@ import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { CourseItem } from '@/constants/courses';
+import { Course } from '@/services/course/courseTypes';
 
 import Icon from '../icon';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 
-const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
+const CourseCard: FC<{ course: Course }> = ({ course }) => {
   return (
-    <div className='col-span-2 sm:col-span-1 px-4 sm:px-6 py-2 sm:py-4 border-1 border-gray-100 bg-gray-50 rounded-3xl overflow-hidden'>
-      <div className='mb-2 sm:mb-4 flex justify-end flex-wrap gap-1'>
-        <Badge variant={course.isLive ? 'live' : 'secondary'}>
-          {course.isLive ? 'Live' : 'Upcoming'}
+    <div className='col-span-2 sm:col-span-1 p-4 sm:p-6 space-y-1 border-1 border-gray-100 bg-gray-50 rounded-3xl overflow-hidden'>
+      <div className='flex justify-end'>
+        <Badge variant={course.status === 'Live' ? 'live' : 'secondary'}>
+          {course.status}
         </Badge>
       </div>
 
-      <div className='w-fit h-8 sm:h-12'>
+      <div className='w-fit h-10 sm:h-12 md:14'>
         <Image
           src={course.imagePath || ''}
           alt={course.title}
@@ -28,23 +28,20 @@ const CourseCard: FC<{ course: CourseItem }> = ({ course }) => {
         />
       </div>
 
-      <h2 className='py-2 text-xl sm:text-2xl font-medium'>{course.title}</h2>
+      <h2 className='font-spaceGrotesk text-xl sm:text-2xl'>{course.title}</h2>
 
-      <p className='text-sm truncate'>{course.description}</p>
+      <p className='text-sm text-gray-800 truncate'>{course.description}</p>
 
-      <Button
-        className='w-full mt-6 group rounded-full'
-        variant='outline'
-        size='sm'
-        asChild
-      >
-        <Link href={`/${course.id}`}>
-          Course Details{' '}
-          <div className='mx-2 group-hover:ml-3 group-hover:mr-1 transition-all'>
-            <Icon name='RiArrowRight' size={16} />
-          </div>
-        </Link>
-      </Button>
+      <div className='pt-4'>
+        <Button className='w-full group rounded-full' variant='outline' asChild>
+          <Link href={`/${course.cname}`}>
+            Course Details{' '}
+            <div className='mx-2 group-hover:ml-3 group-hover:mr-1 transition-all'>
+              <Icon name='RiArrowRight' size={16} />
+            </div>
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 };

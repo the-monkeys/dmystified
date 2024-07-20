@@ -15,13 +15,10 @@ import AddCourseForm from '../forms/AddCourseForm';
 const AddCourseDialog = () => {
   return (
     <Dialog>
-      <div className='my-2 flex justify-end'>
+      <div className='flex justify-end'>
         <DialogTrigger asChild>
-          <Button
-            size='sm'
-            className='px-4 text-white bg-orange hover:bg-orange/90'
-          >
-            Course
+          <Button size='sm'>
+            New
             <Icon name='RiAdd' className='ml-2' />
           </Button>
         </DialogTrigger>

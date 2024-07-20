@@ -10,18 +10,15 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-import AddCourseForm from '../forms/AddSectionForm';
+import AddSectionForm from '../forms/AddSectionForm';
 
 const AddSectionDialog = ({ cname }: { cname: string }) => {
   return (
     <Dialog>
-      <div className='my-2 flex justify-end'>
+      <div className='flex justify-end'>
         <DialogTrigger asChild>
-          <Button
-            size='sm'
-            className='px-4 text-white bg-orange hover:bg-orange/90'
-          >
-            Section
+          <Button size='sm'>
+            Add
             <Icon name='RiAdd' className='ml-2' />
           </Button>
         </DialogTrigger>
@@ -32,7 +29,7 @@ const AddSectionDialog = ({ cname }: { cname: string }) => {
           <DialogTitle>Add New Section</DialogTitle>
         </DialogHeader>
 
-        <AddCourseForm cname={cname} />
+        <AddSectionForm cname={cname} />
       </DialogContent>
     </Dialog>
   );

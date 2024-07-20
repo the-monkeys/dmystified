@@ -17,6 +17,9 @@ const config = {
         '2xl': '1400px',
       },
     },
+    fontFamily: {
+      spaceGrotesk: ['var(--font-spaceGrotesk)'],
+    },
     extend: {
       borderWidth: {
         '1': '1px',

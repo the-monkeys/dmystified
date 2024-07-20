@@ -15,17 +15,9 @@ import {
 } from '@/components/ui/dialog';
 import { toast } from '@/components/ui/use-toast';
 
-import { deleteCourseAction } from '../../actions';
+import { deleteSectionAction } from '../../actions';
 
-const DeleteCourseDialog = ({
-  id,
-  cname,
-  title,
-}: {
-  id: string;
-  cname: string;
-  title: string;
-}) => {
+const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -33,7 +25,7 @@ const DeleteCourseDialog = ({
     setLoading(true);
 
     try {
-      const response = await deleteCourseAction({ cname });
+      const response = await deleteSectionAction({ id });
 
       if (response.status) {
         toast({
@@ -73,20 +65,11 @@ const DeleteCourseDialog = ({
 
       <DialogContent>
         <DialogHeader>
-          <DialogHeader>
-            <DialogTitle className='py-1 pr-4 truncate'>
-              Delete &apos;{title}&apos;
-            </DialogTitle>
-            <DialogDescription>Course Name: {cname}</DialogDescription>
-          </DialogHeader>
+          <DialogTitle>Delete Section</DialogTitle>
+          <DialogDescription>Title: {title}</DialogDescription>
         </DialogHeader>
 
-        <p>
-          Are you sure you want to delete this course?
-          <br />
-          <span className='font-medium'>Alternatively</span>, you can archive
-          the course.
-        </p>
+        <p>Are you sure you want to delete this section?</p>
 
         <div className='pt-4 flex justify-end'>
           <Button
@@ -95,7 +78,7 @@ const DeleteCourseDialog = ({
             onClick={handleDelete}
           >
             {loading && <Loader />}
-            Yes, Delete Course
+            Yes, Delete Section
           </Button>
         </div>
       </DialogContent>
@@ -103,4 +86,4 @@ const DeleteCourseDialog = ({
   );
 };
 
-export default DeleteCourseDialog;
+export default DeleteSectionDialog;

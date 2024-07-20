@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 
 import Container from '@/components/layout/Container';
 import Section from '@/components/layout/Section';
@@ -11,8 +10,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
 
-import DashboardImage from '../../../public/dashboard.svg';
 import Courses from './components/Courses';
 import AddCourseDialog from './components/dialogs/AddCourseDialog';
 
@@ -26,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AdminDashboard = () => {
   return (
-    <Container className='min-h-screen space-y-4'>
+    <Container className='min-h-screen space-y-4 sm:space-y-6'>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -34,31 +33,21 @@ const AdminDashboard = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className='font-medium text-orange cursor-default'>
+            <BreadcrumbPage className='font-medium cursor-default'>
               Dashboard
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <Section className='flex flex-col items-center'>
-        <h1 className='font-medium text-2xl sm:text-3xl md:text-4xl text-center'>
-          <span className='font-medium text-orange'>Admin</span> Dashboard
-        </h1>
+      <h1 className='font-spaceGrotesk font-medium text-2xl sm:text-3xl md:text-4xl'>
+        <span className='font-semibold text-orange'>Admin</span> Dashboard
+      </h1>
 
-        <Image
-          src={DashboardImage}
-          alt='Dashboard Page'
-          width={150}
-          height={150}
-          className='size-48 sm:size-52 md:size-56'
-        />
-      </Section>
+      <Separator />
 
-      <Section className='my-2'>
-        <h3 className='px-2 sm:px-4 font-semibold text-xl sm:text-2xl'>
-          Courses
-        </h3>
+      <Section className='space-y-2'>
+        <h3 className='font-medium text-xl sm:text-2xl'>Courses</h3>
 
         <AddCourseDialog />
 

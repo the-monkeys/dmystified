@@ -8,8 +8,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Separator } from '@/components/ui/separator';
 
-import CourseDetailsCard from './components/CourseDetailsCard';
+import CourseDetails from './components/CourseDetails';
+import Sections from './components/Sections';
 import AddSectionDialog from './components/dialogs/AddSectionDialog';
 
 const DashboardCoursePage = ({
@@ -32,21 +34,23 @@ const DashboardCoursePage = ({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className='font-medium text-orange cursor-default'>
+            <BreadcrumbPage className='font-medium cursor-default'>
               {params.cname}
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <CourseDetailsCard cname={params.cname} />
+      <CourseDetails cname={params.cname} />
 
-      <Section className='my-2'>
-        <h3 className='px-2 sm:px-4 font-semibold text-xl sm:text-2xl'>
-          Sections
-        </h3>
+      <Separator />
+
+      <Section className='space-y-2'>
+        <h3 className='font-medium text-xl sm:text-2xl'>Sections</h3>
 
         <AddSectionDialog cname={params.cname} />
+
+        <Sections cname={params.cname} />
       </Section>
     </Container>
   );

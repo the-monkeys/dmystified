@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 
 import { Footer } from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
@@ -7,7 +7,12 @@ import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-spaceGrotesk',
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dmystified.tech/'),
@@ -18,10 +23,10 @@ export const metadata: Metadata = {
       'de-DE': '/de-DE',
     },
   },
-  title: 'Affordable Live Tech Courses for Developers | Dmystified',
+  title: 'Tech Courses & Open Source Exploration with Experts - Dmystified',
 
   description:
-    'Join Dmystified for affordable live tech courses tailored for developers. Learn programming languages online from expert instructors in real-time. Empower your tech career with hands-on experience and practical skills. Enroll now and start your journey towards becoming a proficient developer.',
+    'Join Dmystified for affordable live tech courses, open-source exposure, and professional guidance. Learn programming from industry experts in live classes. Empower your tech career with hands-on experience and practical skills.',
   twitter: {
     card: 'summary_large_image',
   },
@@ -37,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${spaceGrotesk.variable}`}>
         <Toaster />
         <Navbar />
         {children}

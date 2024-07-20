@@ -11,7 +11,7 @@ import Section from './Section';
 export function Footer() {
   return (
     <Section className='mx-auto max-w-7xl py-4 sm:py-6 px-4 lg:px-8 border-t-1 border-gray-200'>
-      <div className='mb-4'>
+      <div className='mb-10'>
         <Link href='https://x.com/dmystified_tech' target='_blank'>
           <Badge variant='outline' className='mb-2 hover:bg-gray-100'>
             Get latest updates on{' '}

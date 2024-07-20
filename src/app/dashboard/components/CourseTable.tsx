@@ -21,17 +21,16 @@ import UpdateCourseDialog from './dialogs/UpdateCourseDialog';
 
 const CourseTable: FC<{ courses: Course[] }> = ({ courses }) => {
   return (
-    <Table className='mt-2 rounded-lg overflow-hidden'>
+    <Table className='rounded-lg overflow-hidden'>
       {courses && courses.length === 0 && (
         <TableCaption>No course available.</TableCaption>
       )}
 
       <TableHeader>
-        <TableRow className='bg-gray-50'>
+        <TableRow>
           <TableHead>Name</TableHead>
           <TableHead>Title</TableHead>
           <TableHead className='text-center'>Status</TableHead>
-          <TableHead className='text-center'>On Hold</TableHead>
           <TableHead className='text-center'>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -39,7 +38,7 @@ const CourseTable: FC<{ courses: Course[] }> = ({ courses }) => {
       <TableBody>
         {courses?.map((course, index) => {
           return (
-            <TableRow key={course.id} className='hover:bg-gray-50 '>
+            <TableRow key={course.id} className='hover:bg-gray-50'>
               <TableCell className='max-w-[100px]'>
                 <p className='font-gray-800 truncate'>{course.cname}</p>
               </TableCell>
@@ -53,43 +52,37 @@ const CourseTable: FC<{ courses: Course[] }> = ({ courses }) => {
               </TableCell>
 
               <TableCell className='text-center'>
-                <Badge variant={course.isLive ? 'live' : 'outline'}>
-                  {course.isLive ? 'Live' : 'Upcoming'}
+                <Badge
+                  variant={course.status === 'Live' ? 'live' : 'secondary'}
+                >
+                  {course.status}
                 </Badge>
               </TableCell>
 
-              <TableCell className='text-center'>
-                <Badge variant={course.onHold ? 'default' : 'outline'}>
-                  {course.onHold ? 'True' : 'False'}
-                </Badge>
-              </TableCell>
+              <TableCell className='flex justify-center'>
+                <UpdateCourseDialog
+                  id={course.id}
+                  cname={course.cname}
+                  title={course.title}
+                  updatedAt={course.updatedAt}
+                />
 
-              <TableCell>
-                <div className='flex justify-center'>
-                  <UpdateCourseDialog
-                    id={course.id}
-                    cname={course.cname}
-                    title={course.title}
-                    updatedAt={course.updatedAt}
-                  />
+                <DeleteCourseDialog
+                  id={course.id}
+                  cname={course.cname}
+                  title={course.title}
+                />
 
-                  <DeleteCourseDialog
-                    id={course.id}
-                    cname={course.cname}
-                    title={course.title}
-                  />
-
-                  <Button
-                    variant='ghost'
-                    size='icon'
-                    className='rounded-full'
-                    asChild
-                  >
-                    <Link href={`/dashboard/${course.cname}`}>
-                      <Icon name='RiArrowRightUp' size={18} />
-                    </Link>
-                  </Button>
-                </div>
+                <Button
+                  variant='ghost'
+                  size='icon'
+                  className='rounded-full hover:text-orange'
+                  asChild
+                >
+                  <Link href={`/dashboard/${course.cname}`}>
+                    <Icon name='RiArrowRightUp' size={18} />
+                  </Link>
+                </Button>
               </TableCell>
             </TableRow>
           );

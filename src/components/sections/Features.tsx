@@ -5,28 +5,26 @@ import Section from '../layout/Section';
 
 const Features = () => {
   return (
-    <Section id='features' className='mb-10 sm:mb-12'>
-      <div className='mb-6 w-full text-center cursor-default'>
-        <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
-          Why Choose <span className='text-orange'>Dmystified</span>
-          ?!
+    <Section id='features' className='mb-10 sm:mb-12 space-y-6'>
+      <div className='text-center space-y-2'>
+        <h4 className='mx-auto w-fit py-2 font-medium text-2xl sm:text-3xl md:text-4xl border-b-1 border-gray-200'>
+          <span className='text-orange'>Why</span> Choose Us?!
         </h4>
 
         <p className='max-w-xl leading-relaxed text-gray-800 text-sm md:text-base mx-auto'>
-          Discover the benefits of our platform designed to provide an
-          exceptional learning experience.
+          Enjoy live classes and explore open-source projects under the guidance
+          of industry experts.
         </p>
       </div>
 
-      <div className='mt-4 grid grid-cols-2 gap-2 sm:gap-4'>
+      <div className='grid grid-cols-2 gap-2 sm:gap-4'>
         {featureItems.map((feature) => {
           return (
             <FeatureCard
               key={feature.id}
               title={feature.title}
-              tag={feature.tag}
-              imageName={feature.imageName}
               description={feature.description}
+              imageName={feature.imageName}
             />
           );
         })}

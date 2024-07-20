@@ -1,7 +1,9 @@
+'use server';
+
 import { getAllSections } from '@/data-access/sections';
 
-export const getSectionsAction = async (courseId: string) => {
-  const allCourses = await getAllSections(courseId);
+export const getAllSectionsAction = async (cname: string) => {
+  const allCourses = await getAllSections(cname);
 
   return allCourses;
 };

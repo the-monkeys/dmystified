@@ -18,15 +18,12 @@ const Navbar = () => {
 
   return (
     <div className='sticky top-0 left-0 w-full z-50'>
-      <div className='mx-auto max-w-7xl flex items-center justify-between p-4 lg:px-8'>
-        <div className='hidden md:block mx-auto border-1 border-gray-300 rounded-full bg-white/50 backdrop-blur-md overflow-hidden'>
-          <ul className='p-1 inline-flex px-6 space-x-8'>
+      <div className='flex items-center justify-between px-4 py-2 sm:py-4'>
+        <div className='hidden sm:block mx-auto border-1 border-gray-300 rounded-full bg-white/50 backdrop-blur-md overflow-hidden'>
+          <ul className='inline-flex px-6 space-x-6'>
             {navItems.map((item) => (
               <Link href={item.href} key={item.id}>
-                <li
-                  key={item.name}
-                  className='py-2 text-sm font-medium text-black hover:text-orange'
-                >
+                <li className='py-3 text-sm font-medium text-black hover:text-orange'>
                   {item.name}
                 </li>
               </Link>
@@ -37,7 +34,7 @@ const Navbar = () => {
         <Button
           size='icon'
           variant='outline'
-          className='mx-auto md:hidden rounded-full bg-white/50 backdrop-blur-md'
+          className='mx-auto sm:hidden rounded-full bg-white/50 backdrop-blur-md'
           onClick={toggleMenu}
         >
           {!isMenuOpen ? (
@@ -48,18 +45,15 @@ const Navbar = () => {
         </Button>
 
         {isMenuOpen && (
-          <div className='w-full absolute top-full left-0 z-50 md:hidden transition'>
-            <div className='w-52 mx-auto border-1 border-gray-300 rounded-lg bg-white/50 backdrop-blur-lg'>
-              <ul className='p-4 flex flex-col space-y-4'>
+          <div className='w-full absolute top-full left-0 z-50 sm:hidden transition'>
+            <div className='w-48 mx-auto border-1 border-gray-300 rounded-lg bg-white/50 backdrop-blur-lg overflow-hidden'>
+              <ul className='p-4 flex flex-col space-y-2'>
                 {navItems.map((item) => (
-                  <li
-                    key={item.name}
-                    className='text-sm font-medium text-black hover:text-orange text-center'
-                  >
-                    <Link href={item.href} key={item.id}>
+                  <Link href={item.href} key={item.id}>
+                    <li className='py-2 text-sm font-medium text-black hover:text-orange text-center'>
                       {item.name}
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>

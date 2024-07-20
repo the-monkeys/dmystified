@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { Loader } from '@/components/loader';
-import { UpdateCourseFormSkeleton } from '@/components/skeleton/formSkeleton';
+import { UpdateFormSkeleton } from '@/components/skeleton/formSkeleton';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -12,7 +12,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Switch } from '@/components/ui/switch';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 import useCourseInfo from '@/hooks/useCourseInfo';
@@ -42,8 +48,8 @@ const UpdateCourseForm = ({
       title: '',
       description: '',
       imagePath: '',
-      isLive: false,
-      onHold: false,
+      status: 'Upcoming',
+      duration: '',
     },
   });
 
@@ -54,8 +60,8 @@ const UpdateCourseForm = ({
         title: course.title || '',
         description: course.description || '',
         imagePath: course.imagePath || '',
-        isLive: course.isLive || false,
-        onHold: course.onHold || false,
+        status: course.status || 'Upcoming',
+        duration: course.duration || '',
       });
     }
   }, [course, form]);
@@ -90,7 +96,7 @@ const UpdateCourseForm = ({
     }
   };
 
-  if (isLoading) return <UpdateCourseFormSkeleton />;
+  if (isLoading) return <UpdateFormSkeleton />;
 
   return (
     <Form {...form}>
@@ -107,7 +113,7 @@ const UpdateCourseForm = ({
 
               <ul className='px-2 pb-2 list-decimal list-inside'>
                 <li className='text-sm text-gray-600'>
-                  Should be in format name_name_YY (e.g. golang_24)
+                  Should be in format course_name_YY
                 </li>
 
                 <li className='text-sm text-gray-600'>
@@ -174,17 +180,22 @@ const UpdateCourseForm = ({
 
         <FormField
           control={form.control}
-          name='isLive'
+          name='status'
           render={({ field }) => (
             <FormItem className='col-span-2 sm:col-span-1'>
-              <FormLabel>Go Live</FormLabel>
+              <FormLabel>Status</FormLabel>
 
               <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className='block'
-                />
+                <Select onValueChange={field.onChange}>
+                  <SelectTrigger>
+                    <SelectValue placeholder='Select' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='Live'>Live</SelectItem>
+                    <SelectItem value='Upcoming'>Upcoming</SelectItem>
+                    <SelectItem value='Archive'>Archive</SelectItem>
+                  </SelectContent>
+                </Select>
               </FormControl>
 
               <FormMessage />
@@ -194,17 +205,13 @@ const UpdateCourseForm = ({
 
         <FormField
           control={form.control}
-          name='onHold'
+          name='duration'
           render={({ field }) => (
             <FormItem className='col-span-2 sm:col-span-1'>
-              <FormLabel>On Hold</FormLabel>
+              <FormLabel>Duration (in hours)</FormLabel>
 
               <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  className='block'
-                />
+                <Input type='number' placeholder='Enter duration' {...field} />
               </FormControl>
 
               <FormMessage />
