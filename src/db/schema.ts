@@ -1,5 +1,5 @@
+import { relations } from 'drizzle-orm';
 import {
-  boolean,
   integer,
   pgEnum,
   pgTable,
@@ -52,3 +52,25 @@ export const TopicTable = pgTable('topic', {
   createdAt: timestamp('createdAt').notNull().defaultNow(),
   updatedAt: timestamp('updatedAt').notNull().defaultNow(),
 });
+
+export const CourseTableRelations = relations(CourseTable, ({ many }) => ({
+  sections: many(SectionTable),
+}));
+
+export const SectionTableRelations = relations(
+  SectionTable,
+  ({ one, many }) => ({
+    course: one(CourseTable, {
+      fields: [SectionTable.courseId],
+      references: [CourseTable.id],
+    }),
+    topics: many(TopicTable),
+  })
+);
+
+export const TopicTableRelations = relations(TopicTable, ({ one }) => ({
+  section: one(SectionTable, {
+    fields: [TopicTable.sectionId],
+    references: [SectionTable.id],
+  }),
+}));

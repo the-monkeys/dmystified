@@ -15,9 +15,9 @@ import {
 } from '@/components/ui/dialog';
 import { toast } from '@/components/ui/use-toast';
 
-import { deleteSectionAction } from '../../actions';
+import { deleteTopicAction } from '../../actions';
 
-const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
+const DeleteTopicDialog = ({ id, title }: { id: string; title: string }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -25,7 +25,7 @@ const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
     setLoading(true);
 
     try {
-      const response = await deleteSectionAction({ id });
+      const response = await deleteTopicAction({ id });
 
       if (response.status) {
         toast({
@@ -44,7 +44,7 @@ const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'An error occurred while deleting the section.',
+        description: 'An error occurred while deleting the topic.',
       });
     } finally {
       setLoading(false);
@@ -65,11 +65,11 @@ const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete Section</DialogTitle>
+          <DialogTitle>Delete Topic</DialogTitle>
           <DialogDescription>Title: {title}</DialogDescription>
         </DialogHeader>
 
-        <p>Are you sure you want to delete this section?</p>
+        <p>Are you sure you want to delete this topic?</p>
 
         <div className='pt-4 flex justify-end'>
           <Button
@@ -78,7 +78,7 @@ const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
             onClick={handleDelete}
           >
             {loading && <Loader />}
-            Yes, Delete Topic
+            Yes, Delete Section
           </Button>
         </div>
       </DialogContent>
@@ -86,4 +86,4 @@ const DeleteSectionDialog = ({ id, title }: { id: number; title: string }) => {
   );
 };
 
-export default DeleteSectionDialog;
+export default DeleteTopicDialog;

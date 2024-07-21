@@ -1,16 +1,11 @@
 'use client';
 
 import Section from '@/components/layout/Section';
-import { CourseInfoCardSkeleton } from '@/components/skeleton/courseSkeleton';
 import { Badge } from '@/components/ui/badge';
-import useCourseInfo from '@/hooks/useCourseInfo';
+import { Course } from '@/services/course/courseTypes';
 import { formatDate } from '@/utils/formatDate';
 
-const CourseDetails = ({ cname }: { cname: string }) => {
-  const { course, isLoading } = useCourseInfo(cname);
-
-  if (isLoading) return <CourseInfoCardSkeleton />;
-
+const CourseDetails = ({ course }: { course?: Course }) => {
   return (
     <Section className='space-y-1'>
       <div className='space-x-2'>

@@ -1,13 +1,22 @@
+'use server';
+
 import { getAllCourses, getCourseInfo } from '@/data-access/courses';
+import { getAllSectionsWithTopics } from '@/data-access/sections';
 
 export const getCoursesAction = async () => {
-  const allCourses = await getAllCourses();
+  const courses = await getAllCourses();
 
-  return allCourses;
+  return courses;
 };
 
 export const getCourseInfoAction = async (cname: string) => {
-  const courseInfo = await getCourseInfo(cname);
+  const course = await getCourseInfo(cname);
 
-  return courseInfo;
+  return course;
+};
+
+export const getCourseWithSectionInfo = async (cname: string) => {
+  const course = await getAllSectionsWithTopics(cname);
+
+  return course;
 };

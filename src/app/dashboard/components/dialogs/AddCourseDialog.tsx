@@ -18,7 +18,7 @@ const AddCourseDialog = () => {
       <div className='flex justify-end'>
         <DialogTrigger asChild>
           <Button size='sm'>
-            New
+            Course
             <Icon name='RiAdd' className='ml-2' />
           </Button>
         </DialogTrigger>

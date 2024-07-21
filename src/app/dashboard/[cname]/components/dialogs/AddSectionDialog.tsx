@@ -18,7 +18,7 @@ const AddSectionDialog = ({ cname }: { cname: string }) => {
       <div className='flex justify-end'>
         <DialogTrigger asChild>
           <Button size='sm'>
-            Add
+            Section
             <Icon name='RiAdd' className='ml-2' />
           </Button>
         </DialogTrigger>
