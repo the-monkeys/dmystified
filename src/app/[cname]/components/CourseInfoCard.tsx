@@ -9,7 +9,7 @@ import EnrollDialog from './EnrollDialog';
 
 const CourseInfoCard = ({ course }: { course?: Course }) => {
   return (
-    <Section className='min-h-40 sm:min-h-52 p-4 sm:p-6 shadow-md space-y-1 rounded-3xl overflow-hidden'>
+    <Section className='min-h-40 sm:min-h-52 p-4 sm:p-6 shadow-md space-y-1 rounded-2xl overflow-hidden'>
       <div className='flex justify-end'>
         <Badge variant={course?.status === 'Live' ? 'live' : 'secondary'}>
           {course?.status}

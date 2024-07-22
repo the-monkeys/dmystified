@@ -11,7 +11,7 @@ import { Button } from '../ui/button';
 
 const CourseCard: FC<{ course: Course }> = ({ course }) => {
   return (
-    <div className='col-span-2 sm:col-span-1 p-4 sm:p-6 space-y-1 border-1 border-gray-100 bg-gray-50 rounded-3xl overflow-hidden'>
+    <div className='col-span-2 sm:col-span-1 p-4 sm:p-6 space-y-1 border-1 border-gray-100 bg-gray-50 rounded-2xl overflow-hidden'>
       <div className='flex justify-end'>
         <Badge variant={course.status === 'Live' ? 'live' : 'secondary'}>
           {course.status}
@@ -28,7 +28,7 @@ const CourseCard: FC<{ course: Course }> = ({ course }) => {
         />
       </div>
 
-      <h2 className='font-spaceGrotesk text-xl sm:text-2xl'>{course.title}</h2>
+      <h2 className='font-medium text-xl sm:text-2xl'>{course.title}</h2>
 
       <p className='text-sm text-gray-800 truncate'>{course.description}</p>
 

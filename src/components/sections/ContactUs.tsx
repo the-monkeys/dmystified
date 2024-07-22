@@ -14,7 +14,7 @@ const ContactUs = () => {
       <div className='text-center sm:text-left md:w-1/2 flex flex-col'>
         <WhatsAppButton />
 
-        <h4 className='py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
+        <h4 className='py-2 font-spaceGrotesk text-2xl sm:text-3xl md:text-4xl'>
           <span className='font-medium text-orange'>Connect </span> with Us
         </h4>
 

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { getCourseWithSectionInfo } from '@/actions/courseActions';
 import Container from '@/components/layout/Container';
@@ -37,6 +38,10 @@ export default async function CoursePage({
   };
 }) {
   const course = await getCourseWithSectionInfo(params.cname);
+
+  if (course instanceof Error) {
+    notFound();
+  }
 
   const { sections, ...courseDetails } = course as any;
 

@@ -24,7 +24,7 @@ export async function getAllSectionsWithTopics(cname: string) {
   const existingCourse = await getCourseByCname(cname);
 
   if (!existingCourse) {
-    return undefined;
+    return new Error('Course not found.');
   }
 
   const sections = await db.query.CourseTable.findFirst({

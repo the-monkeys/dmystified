@@ -10,9 +10,9 @@ import {
 
 const FAQ = () => {
   return (
-    <Section className='px-2 mb-10 sm:mb-12 sm:px-4 py-6 sm:py-8 bg-gray-50 space-y-6 rounded-lg'>
+    <Section className='px-2 mb-8 sm:mb-10 sm:px-4 py-6 sm:py-8 bg-gray-50 space-y-4 rounded-lg'>
       <div className='text-center space-y-2'>
-        <h4 className='mx-auto w-fit py-2 font-medium text-2xl sm:text-3xl md:text-4xl'>
+        <h4 className='mx-auto w-fit py-2 font-spaceGrotesk text-2xl sm:text-3xl md:text-4xl'>
           <span className='text-orange'>Questions?</span> We&apos;ve got answers
         </h4>
 

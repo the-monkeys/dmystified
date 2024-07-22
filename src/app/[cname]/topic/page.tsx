@@ -4,6 +4,11 @@ import Container from '@/components/layout/Container';
 import { Separator } from '@/components/ui/separator';
 import { getTopicById } from '@/data-access/topic';
 import getMdxComponent from '@/utils/getMdxComponent';
+import { z } from 'zod';
+
+const idSchema = z.object({
+  id: z.string().uuid(),
+});
 
 const TopicContentPage = async ({
   searchParams,
@@ -12,6 +17,11 @@ const TopicContentPage = async ({
     id: string;
   };
 }) => {
+  const idValidation = idSchema.safeParse(searchParams);
+  if (!idValidation.success) {
+    notFound();
+  }
+
   const topic = await getTopicById(searchParams.id);
 
   if (topic?.path === null) {

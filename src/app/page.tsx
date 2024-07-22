@@ -1,5 +1,6 @@
 import React from 'react';
 
+import WhatsAppButton from '@/components/WhatsappSupport';
 import Container from '@/components/layout/Container';
 import ContactUs from '@/components/sections/ContactUs';
 import Courses from '@/components/sections/Courses';

@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className='sticky top-0 left-0 w-full z-50'>
       <div className='flex items-center justify-between px-4 py-2 sm:py-4'>
-        <div className='hidden sm:block mx-auto border-1 border-gray-300 rounded-full bg-white/50 backdrop-blur-md overflow-hidden'>
+        <div className='hidden sm:block mx-auto rounded-full bg-white/50 backdrop-blur-md shadow-md overflow-hidden'>
           <ul className='inline-flex px-6 space-x-6'>
             {navItems.map((item) => (
               <Link href={item.href} key={item.id}>
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Button
           size='icon'
           variant='outline'
-          className='mx-auto sm:hidden rounded-full bg-white/50 backdrop-blur-md'
+          className='mx-auto sm:hidden border-none rounded-full bg-white/50 backdrop-blur-md shadow-md'
           onClick={toggleMenu}
         >
           {!isMenuOpen ? (
@@ -46,7 +46,7 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className='w-full absolute top-full left-0 z-50 sm:hidden transition'>
-            <div className='w-48 mx-auto border-1 border-gray-300 rounded-lg bg-white/50 backdrop-blur-lg overflow-hidden'>
+            <div className='w-48 mx-auto rounded-lg bg-white/50 backdrop-blur-lg shadow-md overflow-hidden'>
               <ul className='p-4 flex flex-col space-y-2'>
                 {navItems.map((item) => (
                   <Link href={item.href} key={item.id}>
