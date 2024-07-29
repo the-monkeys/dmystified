@@ -5,7 +5,7 @@ import { Logo, LogoFull } from '../logo';
 
 const Hero = () => {
   return (
-    <Section className='relative mb-8 sm:mb-10 min-h-60 flex flex-col justify-center items-center gap-2'>
+    <Section className='relative mb-10 sm:mb-16 min-h-60 flex flex-col justify-center items-center gap-2'>
       <div className='absolute bottom-0 right-0 h-full'>
         <Image
           src={Logo}
@@ -38,8 +38,7 @@ const Hero = () => {
       </h1>
 
       <p className='mx-auto text-sm sm:text-base md:text-lg text-gray-900 text-center'>
-        Unlock Affordable Tech Courses and Explore Open Source with Expert
-        Guidance.
+        Unlock Tech Courses and Explore Open Source with Expert Guidance.
       </p>
     </Section>
   );

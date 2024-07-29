@@ -50,7 +50,7 @@ export default async function CoursePage({
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href='/#courses'>Home</BreadcrumbLink>
+            <BreadcrumbLink href='/#courses'>All</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

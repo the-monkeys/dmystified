@@ -2,6 +2,7 @@
 
 import Icon from './icon';
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 
 const WhatsAppButton: React.FC = () => {
   const handleChatClick = () => {
@@ -17,6 +18,22 @@ const WhatsAppButton: React.FC = () => {
       Confused? Chat with us
       <Icon name='RiWhatsapp' className='ml-1 text-green-600' />
     </Badge>
+  );
+};
+
+export const WhatsAppButtonFloating: React.FC = () => {
+  const handleChatClick = () => {
+    window.open('https://api.whatsapp.com/send?phone=8806861078', '_blank');
+  };
+
+  return (
+    <Button
+      size='icon'
+      onClick={handleChatClick}
+      className='m-4 size-10 sm:size-12 md:size-14 fixed bottom-0 right-0 bg-green-600 hover:bg-green-500 rounded-full z-50'
+    >
+      <Icon name='RiWhatsapp' size={24} />
+    </Button>
   );
 };
 

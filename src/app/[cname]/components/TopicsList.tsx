@@ -15,6 +15,7 @@ const TopicsList = ({ topics, cname }: { topics: Topic[]; cname: string }) => {
 
           {topic.path && (
             <Link
+              target='_blank'
               href={`/${cname}/topic?id=${topic.id}`}
               className='p-1 text-sm text-orange/80 hover:text-orange'
             >

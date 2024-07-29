@@ -5,43 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1720965219716,
-      "tag": "0000_clumsy_human_fly",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1721293694005,
-      "tag": "0001_flashy_war_machine",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1721294149842,
-      "tag": "0002_medical_sue_storm",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1721416976380,
-      "tag": "0003_milky_miek",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1721496917507,
-      "tag": "0004_abnormal_oracle",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1721497893202,
-      "tag": "0005_lethal_nocturne",
+      "when": 1722264391914,
+      "tag": "0000_equal_darkhawk",
       "breakpoints": true
     }
   ]

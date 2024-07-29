@@ -8,7 +8,7 @@ import { Textarea } from '../ui/textarea';
 const ContactUs = () => {
   return (
     <Section
-      className='mb-10 sm:mb-12 flex flex-col md:flex-row gap-4'
+      className='mb-10 sm:mb-16 flex flex-col md:flex-row gap-4'
       id='contact'
     >
       <div className='text-center sm:text-left md:w-1/2 flex flex-col'>
@@ -84,7 +84,7 @@ const ContactUs = () => {
           />
         </div>
 
-        <Button type='submit' className='w-full col-span-2'>
+        <Button disabled type='submit' className='w-full col-span-2'>
           Send Message
         </Button>
       </form>

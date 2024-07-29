@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: 'Tech Courses & Open Source Exploration with Experts - Dmystified',
 
   description:
-    'Join Dmystified for affordable live tech courses, open-source exposure, and professional guidance. Learn programming from industry experts in live classes. Empower your tech career with hands-on experience and practical skills.',
+    'Join Dmystified for live tech courses, open-source exposure, and professional guidance. Learn programming from industry experts in live classes. Empower your tech career with hands-on experience and practical skills.',
   twitter: {
     card: 'summary_large_image',
   },

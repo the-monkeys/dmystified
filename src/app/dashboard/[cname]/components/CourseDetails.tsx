@@ -1,7 +1,11 @@
 'use client';
 
+import Link from 'next/link';
+
+import Icon from '@/components/icon';
 import Section from '@/components/layout/Section';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Course } from '@/services/course/courseTypes';
 import { formatDate } from '@/utils/formatDate';
 
@@ -43,6 +47,17 @@ const CourseDetails = ({ course }: { course?: Course }) => {
             {course ? formatDate(course?.updatedAt) : 'Not Available'}
           </span>
         </p>
+      </div>
+
+      <div className='flex justify-end'>
+        <Button className='w-fit group rounded-full' variant='outline' asChild>
+          <Link href={`/${course?.cname}`}>
+            Go to course
+            <div className='mx-2 group-hover:ml-3 group-hover:mr-1 transition-all'>
+              <Icon name='RiArrowRight' size={16} />
+            </div>
+          </Link>
+        </Button>
       </div>
     </Section>
   );

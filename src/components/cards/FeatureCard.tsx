@@ -10,14 +10,14 @@ const FeatureCard = ({
   imageName: string;
 }) => {
   return (
-    <div className='relative w-full sm:w-72 md:w-80 p-4 sm:p-6 flex flex-col items-center space-y-2 rounded-2xl shadow-lg shadow-gray-100 overflow-hidden'>
-      <div className='absolute top-0 right-0 h-full'>
+    <div className='relative w-full sm:w-72 md:w-80 p-4 sm:p-6 flex flex-col items-center space-y-2 rounded-2xl shadow-lg shadow-gray-100 hover:shadow-none overflow-hidden'>
+      <div className='absolute sm:static top-0 right-0 size-full sm:size-32'>
         <Image
           src={`./${imageName}.svg`}
           alt='Dmystified'
           width={150}
           height={150}
-          className='w-full h-full opacity-25'
+          className='w-full h-full opacity-15 sm:opacity-100'
         />
       </div>
 

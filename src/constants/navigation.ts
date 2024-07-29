@@ -14,9 +14,4 @@ export const navItems = [
     name: 'Contact',
     href: '/#contact',
   },
-  {
-    id: 4,
-    name: 'Dashboard',
-    href: '/dashboard',
-  },
 ];

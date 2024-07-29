@@ -13,5 +13,5 @@ export const updateTopicSchema = z.object({
     .string({ required_error: 'Title is required' })
     .min(1, 'Title is required'),
   url: z.string().url().optional(),
-  path: z.string().url().optional(),
+  path: z.string().optional(),
 });
